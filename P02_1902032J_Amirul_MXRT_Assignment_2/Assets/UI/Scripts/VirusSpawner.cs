@@ -12,7 +12,9 @@ public class VirusSpawner : MonoBehaviour
     private GameObject virusGameObject;
 
     private int virusSpawn = 0;
-    private int maxVirusSpawn = 5;
+    private int maxVirusSpawn = 10;
+
+    private float virusSpawnTime = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -23,25 +25,32 @@ public class VirusSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(TimelyVirusSpawn());
+        TimelyVirusSpawn(virusSpawn, maxVirusSpawn, virusSpawnTime);
     }
 
-    IEnumerator TimelyVirusSpawn()
+    void TimelyVirusSpawn(int _virusSpawn, int _maxVirusSpawn, float _virusSpawnTime)
     {
-        yield return new WaitForSeconds(2f);
+        if (_virusSpawn < _maxVirusSpawn)
+        {
+            _virusSpawnTime -= Time.deltaTime;
 
-        arPlaneManager.planesChanged += SpawnVirus;
+            if (_virusSpawnTime <= 0f)
+            {
+                arPlaneManager.planesChanged += SpawnVirus;
+                _virusSpawnTime = 10f;
+            }
+        }
     }
 
     void SpawnVirus(ARPlanesChangedEventArgs virusObject)
     {
-        if (virusSpawn < maxVirusSpawn)
+        foreach (var plane in virusObject.added)
         {
-            foreach (var plane in virusObject.added)
-            {
-                Instantiate(virusGameObject, plane.center, Quaternion.identity);
-                virusSpawn++;
-            }
+            Vector3 planePosition = new Vector3(Random.Range(plane.transform.position.x - plane.transform.localScale.x / 2, plane.transform.position.x + plane.transform.localScale.x / 2),
+                                                plane.transform.position.y,
+                                                Random.Range(plane.transform.position.z - plane.transform.localScale.z / 2, plane.transform.position.z + plane.transform.localScale.z / 2));
+            Instantiate(virusGameObject, planePosition, Quaternion.identity);
+            virusSpawn++;
         }
     }
 }
