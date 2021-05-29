@@ -11,10 +11,13 @@ public class VirusSpawner : MonoBehaviour
     [SerializeField]
     private GameObject virusGameObject;
 
-    private int virusSpawn = 0;
-    private int maxVirusSpawn = 10;
+    [SerializeField]
+    private GameObject selectedObject;
 
-    private float virusSpawnTime = 10f;
+    private int virusSpawn = 0;
+    private int maxVirusSpawn = 3;
+
+    private float virusSpawnTime = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +28,25 @@ public class VirusSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TimelyVirusSpawn(virusSpawn, maxVirusSpawn, virusSpawnTime);
+        //TimelyVirusSpawn(virusSpawn, maxVirusSpawn, virusSpawnTime);
+        arPlaneManager.planesChanged += SpawnVirus;
+        DestroyVirus();
+    }
+
+    void DestroyVirus()
+    {
+        if (Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            var ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                selectedObject = hit.transform.gameObject;
+                Destroy(selectedObject);
+            }
+        }
     }
 
     void TimelyVirusSpawn(int _virusSpawn, int _maxVirusSpawn, float _virusSpawnTime)
@@ -37,20 +58,26 @@ public class VirusSpawner : MonoBehaviour
             if (_virusSpawnTime <= 0f)
             {
                 arPlaneManager.planesChanged += SpawnVirus;
-                _virusSpawnTime = 10f;
+                _virusSpawnTime = 1f;
             }
         }
     }
 
     void SpawnVirus(ARPlanesChangedEventArgs virusObject)
     {
-        foreach (var plane in virusObject.added)
+        if (virusSpawn < maxVirusSpawn)
         {
-            Vector3 planePosition = new Vector3(Random.Range(plane.transform.position.x - plane.transform.localScale.x / 2, plane.transform.position.x + plane.transform.localScale.x / 2),
-                                                plane.transform.position.y,
-                                                Random.Range(plane.transform.position.z - plane.transform.localScale.z / 2, plane.transform.position.z + plane.transform.localScale.z / 2));
-            Instantiate(virusGameObject, planePosition, Quaternion.identity);
-            virusSpawn++;
+            foreach (var plane in virusObject.added)
+            {
+                Vector3 planePosition = new Vector3(Random.Range(plane.transform.position.x - plane.transform.localScale.x / 2, plane.transform.position.x + plane.transform.localScale.x / 2),
+                                                    plane.transform.position.y,
+                                                    Random.Range(plane.transform.position.z - plane.transform.localScale.z / 2, plane.transform.position.z + plane.transform.localScale.z / 2));
+                Instantiate(virusGameObject, planePosition, Quaternion.identity);
+                virusSpawn++;
+                virusGameObject.name = "Virus";
+                Debug.Log(virusGameObject.name);
+            }
         }
+        
     }
 }
