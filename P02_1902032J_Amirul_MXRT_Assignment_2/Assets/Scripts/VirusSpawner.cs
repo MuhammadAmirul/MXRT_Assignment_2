@@ -11,9 +11,6 @@ public class VirusSpawner : MonoBehaviour
     [SerializeField]
     private GameObject virusGameObject;
 
-    [SerializeField]
-    private GameObject selectedObject;
-
     private int virusSpawn = 0;
     private int maxVirusSpawn = 3;
 
@@ -30,26 +27,9 @@ public class VirusSpawner : MonoBehaviour
     {
         //TimelyVirusSpawn(virusSpawn, maxVirusSpawn, virusSpawnTime);
         arPlaneManager.planesChanged += SpawnVirus;
-        DestroyVirus();
     }
 
-    void DestroyVirus()
-    {
-        if (Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            var ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                selectedObject = hit.transform.gameObject;
-                Destroy(selectedObject);
-            }
-        }
-    }
-
-    void TimelyVirusSpawn(int _virusSpawn, int _maxVirusSpawn, float _virusSpawnTime)
+    /*void TimelyVirusSpawn(int _virusSpawn, int _maxVirusSpawn, float _virusSpawnTime)
     {
         if (_virusSpawn < _maxVirusSpawn)
         {
@@ -61,7 +41,7 @@ public class VirusSpawner : MonoBehaviour
                 _virusSpawnTime = 1f;
             }
         }
-    }
+    }*/
 
     void SpawnVirus(ARPlanesChangedEventArgs virusObject)
     {

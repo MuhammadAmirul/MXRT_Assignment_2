@@ -2134,6 +2134,7 @@ GameObject:
   - component: {fileID: 1284900631}
   - component: {fileID: 1284900630}
   - component: {fileID: 1284900629}
+  - component: {fileID: 1284900633}
   m_Layer: 0
   m_Name: AR Camera
   m_TagString: Untagged
@@ -2241,6 +2242,19 @@ Transform:
   m_Father: {fileID: 1057421727}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1284900633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284900627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98b091679f304934d85921801dcb9fdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedObject: {fileID: 0}
 --- !u!1 &1299085703
 GameObject:
   m_ObjectHideFlags: 0
@@ -2512,7 +2526,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arPlaneManager: {fileID: 1057421725}
-  aRRaycastManager: {fileID: 1057421724}
   virusGameObject: {fileID: 6066607125310206302, guid: 1fdcd111953a0c04499315f6f926f5af, type: 3}
 --- !u!4 &1461467540
 Transform:
