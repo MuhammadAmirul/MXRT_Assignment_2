@@ -5,16 +5,26 @@ using UnityEngine.XR.ARFoundation;
 
 public class SelectVirus : MonoBehaviour
 {
+    private Virus virusScript;
+
     [SerializeField]
     private GameObject selectedObject;
 
     [SerializeField]
+    private Transform virusPlaceholder;
+
+    [SerializeField]
     private Camera arCamera;
+
+    public bool isSelected;
 
     // Start is called before the first frame update
     void Start()
     {
+        virusScript = FindObjectOfType<Virus>();
+
         arCamera = FindObjectOfType<Camera>();
+        isSelected = false;
     }
 
     // Update is called once per frame
@@ -34,10 +44,13 @@ public class SelectVirus : MonoBehaviour
 
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit) && hit.transform.name == "Virus" && !isSelected)
             {
                 selectedObject = hit.transform.gameObject;
-                Destroy(selectedObject);
+                isSelected = true;
+
+                virusScript.virusPreventions.enemyHealth.SetActive(true);
+                selectedObject.transform.position = virusPlaceholder.position;
             }
         }
     }

@@ -14,7 +14,7 @@ public class VirusSpawner : MonoBehaviour
     private int virusSpawn = 0;
     private int maxVirusSpawn = 3;
 
-    private float virusSpawnTime = 1f;
+    //private float virusSpawnTime = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -52,10 +52,10 @@ public class VirusSpawner : MonoBehaviour
                 Vector3 planePosition = new Vector3(Random.Range(plane.transform.position.x - plane.transform.localScale.x / 2, plane.transform.position.x + plane.transform.localScale.x / 2),
                                                     plane.transform.position.y,
                                                     Random.Range(plane.transform.position.z - plane.transform.localScale.z / 2, plane.transform.position.z + plane.transform.localScale.z / 2));
+                
                 Instantiate(virusGameObject, planePosition, Quaternion.identity);
                 virusSpawn++;
                 virusGameObject.name = "Virus";
-                Debug.Log(virusGameObject.name);
             }
         }
         
