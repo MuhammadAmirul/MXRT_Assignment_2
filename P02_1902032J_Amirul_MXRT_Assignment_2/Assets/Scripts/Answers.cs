@@ -20,28 +20,55 @@ public class Answers : MonoBehaviour
 
     public void FirstAnswer()
     {
+        virusScript.virusPreventions.FirstAnswer();
+
         if (virusScript.virusPreventions.index == 1)
         {
-            virusScript.virusPreventions.FirstAnswer();
             virusScript.virusPreventions.FirstQuestionSelection();
+        }
+        else if (virusScript.virusPreventions.index == 2)
+        {
+            virusScript.virusPreventions.SecondQuestionSelection();
+        }
+        else if (virusScript.virusPreventions.index == 3)
+        {
+            virusScript.virusPreventions.ThirdQuestionSelection();
         }
     }
 
     public void SecondAnswer()
     {
+        virusScript.virusPreventions.SecondAnswer();
+
         if (virusScript.virusPreventions.index == 1)
         {
-            virusScript.virusPreventions.SecondAnswer();
             virusScript.virusPreventions.FirstQuestionSelection();
+        }
+        else if (virusScript.virusPreventions.index == 2)
+        {
+            virusScript.virusPreventions.SecondQuestionSelection();
+        }
+        else if (virusScript.virusPreventions.index == 3)
+        {
+            virusScript.virusPreventions.ThirdQuestionSelection();
         }
     }
 
     public void ThirdAnswer()
     {
+        virusScript.virusPreventions.ThirdAnswer();
+
         if (virusScript.virusPreventions.index == 1)
         {
-            virusScript.virusPreventions.ThirdAnswer();
             virusScript.virusPreventions.FirstQuestionSelection();
+        }
+        else if (virusScript.virusPreventions.index == 2)
+        {
+            virusScript.virusPreventions.SecondQuestionSelection();
+        }
+        else if (virusScript.virusPreventions.index == 3)
+        {
+            virusScript.virusPreventions.ThirdQuestionSelection();
         }
     }
 }

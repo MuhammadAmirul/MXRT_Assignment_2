@@ -146,6 +146,22 @@ public class VirusPreventions
         answerText[2].text = "0.7 metre";
     }
 
+    public void SecondQuestionSelection()
+    {
+        if (playerAnswer != 2)
+        {
+            gameManager.playerHealth -= 5;
+            gameManager.playerHealthText.text = gameManager.playerHealth.ToString();
+        }
+        else if (playerAnswer == 2)
+        {
+            health--;
+            enemyHealthText.text = health.ToString();
+            randomizedAnswer = false;
+            numberOfQuestions.Remove(index);
+        }
+    }
+
     public void ThirdQuestion()
     {
         question = "What is another critical \n aspect of COVID-19 prevention measures?";
@@ -154,5 +170,21 @@ public class VirusPreventions
         answerText[0].text = "Handshake";
         answerText[1].text = "Washing Hands";
         answerText[2].text = "Washing Hands with Soap";
+    }
+
+    public void ThirdQuestionSelection()
+    {
+        if (playerAnswer != 3)
+        {
+            gameManager.playerHealth -= 5;
+            gameManager.playerHealthText.text = gameManager.playerHealth.ToString();
+        }
+        else if (playerAnswer == 3)
+        {
+            health--;
+            enemyHealthText.text = health.ToString();
+            randomizedAnswer = false;
+            numberOfQuestions.Remove(index);
+        }
     }
 }
