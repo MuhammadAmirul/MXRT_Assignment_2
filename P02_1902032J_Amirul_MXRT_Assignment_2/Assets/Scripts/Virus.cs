@@ -12,10 +12,6 @@ public class Virus : MonoBehaviour
 
     private string question;
 
-    public GameObject[] answerButtons = new GameObject[3];
-
-    public Text[] answerText = new Text[3];
-
     // Start is called before the first frame update
     void Start()
     {
