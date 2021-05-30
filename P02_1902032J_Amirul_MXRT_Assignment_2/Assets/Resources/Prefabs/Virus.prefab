@@ -108,6 +108,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3b5c1857f9c464db608577910ecbd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
+  enemyHealth: {fileID: 0}
+  enemyHealthText: {fileID: 0}
   answerButtons:
   - {fileID: 0}
   - {fileID: 0}
@@ -116,3 +119,4 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  questionWindow: {fileID: 0}

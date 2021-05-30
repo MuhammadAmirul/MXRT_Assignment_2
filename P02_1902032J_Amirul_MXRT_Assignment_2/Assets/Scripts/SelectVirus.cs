@@ -49,7 +49,6 @@ public class SelectVirus : MonoBehaviour
                 selectedObject = hit.transform.gameObject;
                 isSelected = true;
 
-                virusScript.virusPreventions.enemyHealth.SetActive(true);
                 selectedObject.transform.position = virusPlaceholder.position;
             }
         }

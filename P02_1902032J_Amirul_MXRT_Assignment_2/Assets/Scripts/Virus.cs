@@ -7,7 +7,26 @@ public class Virus : MonoBehaviour
 {
     public VirusPreventions virusPreventions;
 
+    public SelectVirus selectVirusScript;
+
+    [SerializeField]
     private int health;
+
+    [SerializeField]
+    private GameObject enemyHealth;
+
+    [SerializeField]
+    private Text enemyHealthText;
+
+    [SerializeField]
+    private GameObject[] answerButtons = new GameObject[3];
+
+    [SerializeField]
+    private Text[] answerText = new Text[3];
+
+    [SerializeField]
+    private GameObject questionWindow;
+
     List<int> numberOfQuestions = new List<int>();
 
     private string question;
@@ -19,6 +38,10 @@ public class Virus : MonoBehaviour
         virusPreventions = new VirusPreventions(health);
 
         virusPreventions.GetGameObjectsAndTextComponents();
+
+        selectVirusScript = FindObjectOfType<SelectVirus>();
+
+        this.gameObject.name = "Virus";
 
         //numberOfQuestions = health;
 
@@ -36,6 +59,10 @@ public class Virus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (selectVirusScript.isSelected == true)
+        {
+            virusPreventions.ShowQuestionsUI();
+            virusPreventions.ShowQuestion();
+        }
     }
 }

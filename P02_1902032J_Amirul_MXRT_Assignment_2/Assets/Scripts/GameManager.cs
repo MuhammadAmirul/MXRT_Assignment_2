@@ -15,6 +15,18 @@ public class GameManager : MonoBehaviour
     private int virusSpawn = 0;
     private int maxVirusSpawn = 3;
 
+    [Space]
+    public GameObject enemyHealth;
+    public Text enemyHealthText;
+
+    public Text questionText;
+
+    public GameObject answerButton;
+    public GameObject[] answerButtons = new GameObject[3];
+    public Text[] answerText = new Text[3];
+
+    public GameObject questionWindow;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +50,6 @@ public class GameManager : MonoBehaviour
 
                 Instantiate(virusGameObject, planePosition, Quaternion.identity);
                 virusSpawn++;
-                virusGameObject.name = "Virus";
             }
         }
     }
