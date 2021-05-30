@@ -18,8 +18,30 @@ public class Questions : MonoBehaviour
         
     }*/
 
-    public void SelectQuestions()
+    public void FirstAnswer()
     {
-        virusScript.virusPreventions.FirstQuestionSelection();
+        if (virusScript.virusPreventions.index == 1)
+        {
+            virusScript.virusPreventions.FirstAnswer();
+            virusScript.virusPreventions.FirstQuestionSelection();
+        }
+    }
+
+    public void SecondAnswer()
+    {
+        if (virusScript.virusPreventions.index == 1)
+        {
+            virusScript.virusPreventions.SecondAnswer();
+            virusScript.virusPreventions.FirstQuestionSelection();
+        }
+    }
+
+    public void ThirdAnswer()
+    {
+        if (virusScript.virusPreventions.index == 1)
+        {
+            virusScript.virusPreventions.ThirdAnswer();
+            virusScript.virusPreventions.FirstQuestionSelection();
+        }
     }
 }

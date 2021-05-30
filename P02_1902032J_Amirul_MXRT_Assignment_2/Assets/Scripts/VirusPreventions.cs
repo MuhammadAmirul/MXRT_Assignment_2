@@ -15,7 +15,6 @@ public class VirusPreventions
     public string question;
 
     public GameObject answerButton;
-    public GameObject[] answerButtons = new GameObject[3];
     public Text[] answerText = new Text[3];
 
     public GameObject questionWindow;
@@ -44,10 +43,6 @@ public class VirusPreventions
         answerButton = gameManager.answerButton;
         answerButton.SetActive(false);
 
-        answerButtons[0] = gameManager.answerButtons[0];
-        answerButtons[1] = gameManager.answerButtons[1];
-        answerButtons[2] = gameManager.answerButtons[2];
-
         answerText[0] = gameManager.answerText[0].GetComponent<Text>();
         answerText[1] = gameManager.answerText[1].GetComponent<Text>();
         answerText[2] = gameManager.answerText[2].GetComponent<Text>();
@@ -69,18 +64,16 @@ public class VirusPreventions
 
     public void ShowQuestion()
     {
-        for (int i = 1; i <= health; i++)
-        {
-            numberOfQuestions.Add(i);
-        }
-
         if (health > 0 && !randomizedAnswer)
         {
-            index = Random.Range(numberOfQuestions[0], numberOfQuestions.Count - 1);
+            for (int i = 1; i <= health; i++)
+            {
+                numberOfQuestions.Add(i);
+            }
+
+            index = Random.Range(numberOfQuestions[0], numberOfQuestions.Count);
             randomizedAnswer = true;
         }
-        
-        //int index = numberOfQuestions[1];
 
         if (index == 1)
         {
@@ -96,14 +89,31 @@ public class VirusPreventions
         }
     }
 
+    public void FirstAnswer()
+    {
+        playerAnswer = firstAnswer;
+    }
+
+    public void SecondAnswer()
+    {
+        playerAnswer = secondAnswer;
+    }
+
+    public void ThirdAnswer()
+    {
+        playerAnswer = thirdAnswer;
+    }
+
+    public int playerAnswer;
+
+    public int firstAnswer = 1;
+    public int secondAnswer = 2;
+    public int thirdAnswer = 3;
+
     public void FirstQuestion()
     {
         question = "What should you wear on \n your face when you are \n outdoors or in public areas?";
         questionText.text = question;
-
-        /*answerButtons[0].SetActive(true);
-        answerButtons[1].SetActive(true);
-        answerButtons[2].SetActive(true);*/
 
         answerText[0].text = "Face Mask";
         answerText[1].text = "Helmet";
@@ -112,20 +122,24 @@ public class VirusPreventions
 
     public void FirstQuestionSelection()
     {
-        gameManager.playerHealth -= 5;
-        gameManager.playerHealthText.text = gameManager.playerHealth.ToString();
-        randomizedAnswer = false;
-        numberOfQuestions.Remove(index);
+        if (playerAnswer != 1)
+        {
+            gameManager.playerHealth -= 5;
+            gameManager.playerHealthText.text = gameManager.playerHealth.ToString();
+        }
+        else if (playerAnswer == 1)
+        {
+            health--;
+            enemyHealthText.text = health.ToString();
+            randomizedAnswer = false;
+            numberOfQuestions.Remove(index);
+        }
     }
 
     public void SecondQuestion()
     {
         question = "How many metre is \n considered social distancing?";
         questionText.text = question;
-
-        /*answerButtons[0].SetActive(true);
-        answerButtons[1].SetActive(true);
-        answerButtons[2].SetActive(true);*/
 
         answerText[0].text = "0.5 metre";
         answerText[1].text = "At least 1 metre";
@@ -136,10 +150,6 @@ public class VirusPreventions
     {
         question = "What is another critical \n aspect of COVID-19 prevention measures?";
         questionText.text = question;
-
-        /*answerButtons[0].SetActive(true);
-        answerButtons[1].SetActive(true);
-        answerButtons[2].SetActive(true);*/
 
         answerText[0].text = "Handshake";
         answerText[1].text = "Washing Hands";
