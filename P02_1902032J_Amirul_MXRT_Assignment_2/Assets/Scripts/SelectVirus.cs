@@ -5,7 +5,7 @@ using UnityEngine.XR.ARFoundation;
 
 public class SelectVirus : MonoBehaviour
 {
-    public Questions questionsScript;
+    public Answers answersScript;
 
     [SerializeField]
     private GameObject selectedObject;
@@ -21,7 +21,7 @@ public class SelectVirus : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        questionsScript = FindObjectOfType<Questions>();
+        answersScript = FindObjectOfType<Answers>();
 
         arCamera = FindObjectOfType<Camera>();
         isSelected = false;
@@ -47,7 +47,7 @@ public class SelectVirus : MonoBehaviour
             if (Physics.Raycast(ray, out hit) && hit.transform.name == "Virus" && !isSelected)
             {
                 selectedObject = hit.transform.gameObject;
-                questionsScript.virusScript = FindObjectOfType<Virus>();
+                answersScript.virusScript = FindObjectOfType<Virus>();
                 isSelected = true;
 
                 selectedObject.transform.position = virusPlaceholder.position;
