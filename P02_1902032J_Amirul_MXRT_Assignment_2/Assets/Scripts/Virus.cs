@@ -9,8 +9,8 @@ public class Virus : MonoBehaviour
 
     public SelectVirus selectVirusScript;
 
-    [SerializeField]
-    private int health;
+    /*[SerializeField]
+    private int health;*/
 
     [SerializeField]
     private GameObject enemyHealth;
@@ -34,27 +34,14 @@ public class Virus : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = Random.Range(1, 3);
-        virusPreventions = new VirusPreventions(health);
+        virusPreventions = new VirusPreventions();
 
         virusPreventions.GetGameObjectsAndTextComponents();
 
         selectVirusScript = FindObjectOfType<SelectVirus>();
 
         this.gameObject.name = "Virus";
-
-        //numberOfQuestions = health;
-
-        //QuestionsSetUp();
     }
-
-    /*void QuestionsSetUp()
-    {
-        for (int i = 0; i < health; i++)
-        {
-            numberOfQuestions.Add(i);
-        }
-    }*/
 
     // Update is called once per frame
     void Update()

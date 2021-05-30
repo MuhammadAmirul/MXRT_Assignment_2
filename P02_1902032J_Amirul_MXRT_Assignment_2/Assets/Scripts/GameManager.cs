@@ -27,10 +27,17 @@ public class GameManager : MonoBehaviour
 
     public GameObject questionWindow;
 
+    public int playerHealth;
+
+    public Text playerHealthText;
+
     // Start is called before the first frame update
     void Start()
     {
         virusSpawn = 0;
+        playerHealth = 100;
+
+        playerHealthText.text = playerHealth.ToString();
     }
 
     // Update is called once per frame

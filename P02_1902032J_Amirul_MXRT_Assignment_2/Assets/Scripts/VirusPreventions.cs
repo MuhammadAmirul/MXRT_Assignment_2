@@ -20,14 +20,12 @@ public class VirusPreventions
 
     public GameObject questionWindow;
 
-    List<int> numberOfQuestions = new List<int>();
+    public List<int> numberOfQuestions = new List<int>();
 
     public bool correctAnswer;
 
-    public VirusPreventions(int _health)
-    {
-        health = _health;
-    }
+    public int index;
+    public bool randomizedAnswer;
 
     public void GetGameObjectsAndTextComponents()
     {
@@ -35,6 +33,8 @@ public class VirusPreventions
 
         enemyHealth = gameManager.enemyHealth;
         enemyHealth.SetActive(false);
+
+        health = Random.Range(1, 3);
 
         enemyHealthText = gameManager.enemyHealthText.GetComponent<Text>();
         enemyHealthText.text = health.ToString();
@@ -54,6 +54,8 @@ public class VirusPreventions
 
         questionWindow = gameManager.questionWindow;
         questionWindow.SetActive(false);
+
+        randomizedAnswer = false;
     }
 
     public void ShowQuestionsUI()
@@ -72,7 +74,13 @@ public class VirusPreventions
             numberOfQuestions.Add(i);
         }
 
-        int index = numberOfQuestions.IndexOf(health);
+        if (health > 0 && !randomizedAnswer)
+        {
+            index = Random.Range(numberOfQuestions[0], numberOfQuestions.Count - 1);
+            randomizedAnswer = true;
+        }
+        
+        //int index = numberOfQuestions[1];
 
         if (index == 1)
         {
@@ -100,6 +108,14 @@ public class VirusPreventions
         answerText[0].text = "Face Mask";
         answerText[1].text = "Helmet";
         answerText[2].text = "Nothing";
+    }
+
+    public void FirstQuestionSelection()
+    {
+        gameManager.playerHealth -= 5;
+        gameManager.playerHealthText.text = gameManager.playerHealth.ToString();
+        randomizedAnswer = false;
+        numberOfQuestions.RemoveAt(index);
     }
 
     public void SecondQuestion()
