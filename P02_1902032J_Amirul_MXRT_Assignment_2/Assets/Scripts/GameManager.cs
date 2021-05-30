@@ -60,18 +60,4 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
-    /*void TimelyVirusSpawn(int _virusSpawn, int _maxVirusSpawn, float _virusSpawnTime)
-    {
-        if (_virusSpawn < _maxVirusSpawn)
-        {
-            _virusSpawnTime -= Time.deltaTime;
-
-            if (_virusSpawnTime <= 0f)
-            {
-                arPlaneManager.planesChanged += SpawnVirus;
-                _virusSpawnTime = 1f;
-            }
-        }
-    }*/
 }

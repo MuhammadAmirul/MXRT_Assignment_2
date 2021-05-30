@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Questions : MonoBehaviour
 {
-    public VirusPreventions virusPreventions;
+    public Virus virusScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        //virusPreventions = new VirusPreventions();
+        
     }
 
     // Update is called once per frame
@@ -20,6 +20,6 @@ public class Questions : MonoBehaviour
 
     public void SelectQuestions()
     {
-        virusPreventions.FirstQuestionSelection();
+        virusScript.virusPreventions.FirstQuestionSelection();
     }
 }

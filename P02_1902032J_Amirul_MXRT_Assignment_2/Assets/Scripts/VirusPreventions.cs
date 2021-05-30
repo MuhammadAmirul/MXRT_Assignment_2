@@ -115,12 +115,12 @@ public class VirusPreventions
         gameManager.playerHealth -= 5;
         gameManager.playerHealthText.text = gameManager.playerHealth.ToString();
         randomizedAnswer = false;
-        numberOfQuestions.RemoveAt(index);
+        numberOfQuestions.Remove(index);
     }
 
     public void SecondQuestion()
     {
-        question = "How many metre is considered social distancing?";
+        question = "How many metre is \n considered social distancing?";
         questionText.text = question;
 
         /*answerButtons[0].SetActive(true);
@@ -134,7 +134,7 @@ public class VirusPreventions
 
     public void ThirdQuestion()
     {
-        question = "What is another critical aspect of COVID-19 prevention measures?";
+        question = "What is another critical \n aspect of COVID-19 prevention measures?";
         questionText.text = question;
 
         /*answerButtons[0].SetActive(true);
