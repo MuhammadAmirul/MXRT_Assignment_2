@@ -64,6 +64,15 @@ public class VirusPreventions
         answerButton.SetActive(true);
     }
 
+    public void CloseQuestionsUI()
+    {
+        enemyHealth.SetActive(false);
+
+        questionWindow.SetActive(false);
+
+        answerButton.SetActive(false);
+    }
+
     public void ShowQuestion()
     {
         if (health > 0 && !randomizedAnswer)
