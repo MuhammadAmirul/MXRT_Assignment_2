@@ -4,59 +4,99 @@ using UnityEngine;
 
 public class Answers : MonoBehaviour
 {
-    public Virus virusScript;
+    public GameManager gameManager;
+
+    public VirusTypeOne virusTypeOneScript;
+    public VirusTypeTwo virusTypeTwoScript;
+
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
 
     public void FirstAnswer()
     {
-        virusScript.virusPreventions.FirstAnswer();
+        if (gameManager.virusType == 1)
+        {
+            virusTypeOneScript.virusPreventions.FirstAnswer();
 
-        if (virusScript.virusPreventions.index == 1)
-        {
-            virusScript.virusPreventions.FirstQuestionSelection();
+            if (virusTypeOneScript.virusPreventions.index == 1)
+            {
+                virusTypeOneScript.virusPreventions.FirstQuestionSelection();
+            }
+            else if (virusTypeOneScript.virusPreventions.index == 2)
+            {
+                virusTypeOneScript.virusPreventions.SecondQuestionSelection();
+            }
+            else if (virusTypeOneScript.virusPreventions.index == 3)
+            {
+                virusTypeOneScript.virusPreventions.ThirdQuestionSelection();
+            }
         }
-        else if (virusScript.virusPreventions.index == 2)
+        else if (gameManager.virusType == 2)
         {
-            virusScript.virusPreventions.SecondQuestionSelection();
-        }
-        else if (virusScript.virusPreventions.index == 3)
-        {
-            virusScript.virusPreventions.ThirdQuestionSelection();
+            virusTypeTwoScript.virusSymptoms.FirstAnswer();
+
+            if (virusTypeTwoScript.virusSymptoms.index == 1)
+            {
+                virusTypeTwoScript.virusSymptoms.FirstQuestionSelection();
+            }
+            else if (virusTypeTwoScript.virusSymptoms.index == 2)
+            {
+                virusTypeTwoScript.virusSymptoms.SecondQuestionSelection();
+            }
         }
     }
 
     public void SecondAnswer()
     {
-        virusScript.virusPreventions.SecondAnswer();
+        if (gameManager.virusType == 1)
+        {
+            virusTypeOneScript.virusPreventions.SecondAnswer();
 
-        if (virusScript.virusPreventions.index == 1)
-        {
-            virusScript.virusPreventions.FirstQuestionSelection();
+            if (virusTypeOneScript.virusPreventions.index == 1)
+            {
+                virusTypeOneScript.virusPreventions.FirstQuestionSelection();
+            }
+            else if (virusTypeOneScript.virusPreventions.index == 2)
+            {
+                virusTypeOneScript.virusPreventions.SecondQuestionSelection();
+            }
+            else if (virusTypeOneScript.virusPreventions.index == 3)
+            {
+                virusTypeOneScript.virusPreventions.ThirdQuestionSelection();
+            }
         }
-        else if (virusScript.virusPreventions.index == 2)
+        else if (gameManager.virusType == 2)
         {
-            virusScript.virusPreventions.SecondQuestionSelection();
-        }
-        else if (virusScript.virusPreventions.index == 3)
-        {
-            virusScript.virusPreventions.ThirdQuestionSelection();
+            virusTypeTwoScript.virusSymptoms.SecondAnswer();
+
+            if (virusTypeTwoScript.virusSymptoms.index == 1)
+            {
+                virusTypeTwoScript.virusSymptoms.FirstQuestionSelection();
+            }
+            else if (virusTypeTwoScript.virusSymptoms.index == 2)
+            {
+                virusTypeTwoScript.virusSymptoms.SecondQuestionSelection();
+            }
         }
     }
 
     public void ThirdAnswer()
     {
-        virusScript.virusPreventions.ThirdAnswer();
+        virusTypeOneScript.virusPreventions.ThirdAnswer();
 
-        if (virusScript.virusPreventions.index == 1)
+        if (virusTypeOneScript.virusPreventions.index == 1)
         {
-            virusScript.virusPreventions.FirstQuestionSelection();
+            virusTypeOneScript.virusPreventions.FirstQuestionSelection();
         }
-        else if (virusScript.virusPreventions.index == 2)
+        else if (virusTypeOneScript.virusPreventions.index == 2)
         {
-            virusScript.virusPreventions.SecondQuestionSelection();
+            virusTypeOneScript.virusPreventions.SecondQuestionSelection();
         }
-        else if (virusScript.virusPreventions.index == 3)
+        else if (virusTypeOneScript.virusPreventions.index == 3)
         {
-            virusScript.virusPreventions.ThirdQuestionSelection();
+            virusTypeOneScript.virusPreventions.ThirdQuestionSelection();
         }
     }
 }

@@ -10,7 +10,11 @@ public class GameManager : MonoBehaviour
     private ARPlaneManager arPlaneManager;
 
     [SerializeField]
-    private GameObject virusGameObject;
+    private GameObject virusTypeOneGameObject;
+    [SerializeField]
+    private GameObject virusTypeTwoGameObject;
+
+    public int virusType;
 
     public int virusSpawn = 0;
     private int maxVirusSpawn = 3;
@@ -51,11 +55,21 @@ public class GameManager : MonoBehaviour
         {
             foreach (var plane in virusObject.added)
             {
+                virusType = Random.Range(1, 3);
+
                 Vector3 planePosition = new Vector3(Random.Range(plane.transform.position.x - plane.transform.localScale.x / 2, plane.transform.position.x + plane.transform.localScale.x / 2),
                                                     plane.transform.position.y,
                                                     Random.Range(plane.transform.position.z - plane.transform.localScale.z / 2, plane.transform.position.z + plane.transform.localScale.z / 2));
 
-                Instantiate(virusGameObject, planePosition, Quaternion.identity);
+                if (virusType == 1)
+                {
+                    Instantiate(virusTypeOneGameObject, planePosition, Quaternion.identity);
+                }
+                else if (virusType == 2)
+                {
+                    Instantiate(virusTypeTwoGameObject, planePosition, Quaternion.identity);
+                }
+                
                 virusSpawn++;
             }
         }

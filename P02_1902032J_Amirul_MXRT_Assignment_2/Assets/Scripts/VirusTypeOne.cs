@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Virus : MonoBehaviour
+public class VirusTypeOne : MonoBehaviour
 {
     private GameManager gameManagerScript;
 
@@ -21,17 +21,7 @@ public class Virus : MonoBehaviour
     private Text enemyHealthText;
 
     [SerializeField]
-    private GameObject[] answerButtons = new GameObject[3];
-
-    [SerializeField]
-    private Text[] answerText = new Text[3];
-
-    [SerializeField]
     private GameObject questionWindow;
-
-    List<int> numberOfQuestions = new List<int>();
-
-    private string question;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +31,6 @@ public class Virus : MonoBehaviour
         selectVirusScript = FindObjectOfType<SelectVirus>();
 
         virusPreventions = new VirusPreventions();
-
         virusPreventions.GetGameObjectsAndTextComponents();
 
         this.gameObject.name = "Virus";
@@ -59,8 +48,8 @@ public class Virus : MonoBehaviour
         if (virusPreventions.health <= 0)
         {
             gameManagerScript.virusSpawn--;
-
             virusPreventions.CloseQuestionsUI();
+
             selectVirusScript.isSelected = false;
 
             Destroy(this.gameObject);

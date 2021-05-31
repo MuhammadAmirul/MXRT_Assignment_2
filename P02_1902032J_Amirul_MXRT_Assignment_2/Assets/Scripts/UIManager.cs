@@ -5,19 +5,15 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [Header("Virus Script")]
-    private Virus virusScript;
-
-    [Header("Virus Prevention Window")]
+    [Header("Small Prevention Window")]
     [SerializeField]
-    private GameObject preventionWindow;
+    private GameObject smallPreventionWindow;
 
     [Header("Prevention Individual Window")]
     [SerializeField]
     private GameObject preventionIndividualWindow;
 
-    #region Face Mask Information Variables
-    [Header("Face Mask Information Variables")]
+    [Header("Prevention Information Variables")]
     [SerializeField]
     private Image icon;
     [SerializeField]
@@ -25,12 +21,29 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Text informationText;
 
+    #region Face Mask Information Variables
     private string faceMaskTitle = "Face Mask";
-    private string faceMaskInformation = "Face Mask are essential to \n wear when going to public \n areas. It helps protect, \n prevent transmissions and \n save lives from COVID-19.";
+    private string faceMaskInformation = "Face Mask are essential to \nwear when going to public \nareas. It helps protect, " +
+                                         "\nprevent transmissions and \nsave lives from COVID-19.";
+    #endregion
+
+    #region Social Distancing Information Variables
+    private string socialDistancingTitle = "Social Distancing";
+    private string socialDistancingInformation = "Social Distancing helps limit \nthe spread of COVID-19 by " +
+                                                 "\nkeeping a distance of at \nleast 1 metre from each \nother in crowded places.";
+    #endregion
+
+    #region Washing Hands Information Variables
+    private string washingHandsingTitle = "Washing Hands With Soap";
+    private string washingHandsInformation = "Regularly washing hands \nwith soap keeps us healthy \nand can reduce the spread \nof COVID-19. Avoid touching " +
+                                             "\nyour face or food as you \nmay have touched a contaminated surface.";
     #endregion
 
     [Header("Virus Preventions Booleans")]
     public bool firstCorrectPreventionAnswer, secondCorrectPreventionAnswer, thirdCorrectPreventionAnswer;
+
+    [Header("Virus Symptoms Booleans")]
+    public bool firstCorrectSymptomsAnswer, secondCorrectSymptomsAnswer;
 
     #region Virus Prevetions Sprites Variables
     [Header("Virus Preventions Sprites")]
@@ -62,9 +75,9 @@ public class UIManager : MonoBehaviour
     private Text thirdKnowledgeText;
     #endregion
 
-    private string faceMaskInfo = "Face Mask \n Tap for more Info";
-    private string socialDistancingInfo = "Social Distancing \n Tap for more Info";
-    private string washinghandsInfo = "Washing Hands \n With Soap \n Tap for more Info";
+    private string faceMaskInfo = "Face Mask \nTap for more Info";
+    private string socialDistancingInfo = "Social Distancing \nTap for more Info";
+    private string washinghandsInfo = "Washing Hands \nWith Soap \nTap for more Info";
 
     private string preventionTitle;
 
@@ -73,8 +86,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //virusScript = FindObjectOfType<Virus>();
-        preventionWindow.SetActive(false);
+        smallPreventionWindow.SetActive(false);
 
         preventionIndividualWindow.SetActive(false);
 
@@ -87,9 +99,19 @@ public class UIManager : MonoBehaviour
 
     }*/
 
+    public void ClosePreventionWindow()
+    {
+        smallPreventionWindow.SetActive(false);
+    }
+
+    public void ClosePreventionIndividualWindow()
+    {
+        preventionIndividualWindow.SetActive(false);
+    }
+
     public void ShowPreventionKnowledge()
     {
-        preventionWindow.SetActive(true);
+        smallPreventionWindow.SetActive(true);
 
         ShowUnlockPreventionKnowledge();
     }
@@ -118,9 +140,30 @@ public class UIManager : MonoBehaviour
     public void ShowFaceMaskKnowledge()
     {
         preventionIndividualWindow.SetActive(true);
+        smallPreventionWindow.SetActive(false);
 
         icon.sprite = faceMask;
         titleText.text = faceMaskTitle;
         informationText.text = faceMaskInformation;
+    }
+
+    public void ShowSocialDistancingKnowledge()
+    {
+        preventionIndividualWindow.SetActive(true);
+        smallPreventionWindow.SetActive(false);
+
+        icon.sprite = socialDistancing;
+        titleText.text = socialDistancingTitle;
+        informationText.text = socialDistancingInformation;
+    }
+
+    public void ShowWashingHandsKnowledge()
+    {
+        preventionIndividualWindow.SetActive(true);
+        smallPreventionWindow.SetActive(false);
+
+        icon.sprite = washingHands;
+        titleText.text = washingHandsingTitle;
+        informationText.text = washingHandsInformation;
     }
 }
