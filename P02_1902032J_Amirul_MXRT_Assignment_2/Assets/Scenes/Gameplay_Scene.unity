@@ -526,7 +526,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -267}
+  m_AnchoredPosition: {x: 0, y: -194}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &167803300
@@ -551,10 +551,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 32
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 10
     m_MaxSize: 54
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -773,19 +773,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 297381211}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 381577162}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ShowSocialDistancingKnowledge
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &297381211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -905,19 +893,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 330446689}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 381577162}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ClosePreventionWindow
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &330446689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1077,7 +1053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53655a34af981044a993f34031b92515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smallPreventionWindow: {fileID: 1587338497}
+  preventionWindow: {fileID: 1587338497}
   preventionIndividualWindow: {fileID: 1168705735}
   icon: {fileID: 1783948679}
   titleText: {fileID: 790348498}
@@ -1085,8 +1061,6 @@ MonoBehaviour:
   firstCorrectPreventionAnswer: 0
   secondCorrectPreventionAnswer: 0
   thirdCorrectPreventionAnswer: 0
-  firstCorrectSymptomsAnswer: 0
-  secondCorrectSymptomsAnswer: 0
   faceMask: {fileID: 21300000, guid: 96bf07a59da784941b914e20cb2d1040, type: 3}
   socialDistancing: {fileID: 21300000, guid: 8416a1ca8052fe64cb610b87a9aadf54, type: 3}
   washingHands: {fileID: 21300000, guid: 3da002a531c53ab4783277e2bf33832d, type: 3}
@@ -1831,7 +1805,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -153}
+  m_AnchoredPosition: {x: 0, y: -107}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &790348498
@@ -1856,10 +1830,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 32
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 10
     m_MaxSize: 54
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -3076,19 +3050,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1133906720}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 381577162}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ClosePreventionIndividualWindow
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1133906720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4701,19 +4663,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1734386333}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 381577162}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ShowWashingHandsKnowledge
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1734386333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4860,7 +4810,7 @@ RectTransform:
   m_GameObject: {fileID: 1783948677}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 1}
   m_Children: []
   m_Father: {fileID: 1168705736}
   m_RootOrder: 2
@@ -5783,19 +5733,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2139094698}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 381577162}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ShowFaceMaskKnowledge
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2139094698
 MonoBehaviour:
   m_ObjectHideFlags: 0
