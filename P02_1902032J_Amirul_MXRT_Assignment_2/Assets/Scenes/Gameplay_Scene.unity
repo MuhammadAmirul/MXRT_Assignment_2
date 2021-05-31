@@ -1054,6 +1054,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preventionWindow: {fileID: 1587338497}
+  preventionIndividualWindow: {fileID: 1168705735}
+  icon: {fileID: 1783948679}
+  titleText: {fileID: 790348498}
+  informationText: {fileID: 167803300}
+  firstCorrectPreventionAnswer: 0
+  secondCorrectPreventionAnswer: 0
+  thirdCorrectPreventionAnswer: 0
   faceMask: {fileID: 21300000, guid: 96bf07a59da784941b914e20cb2d1040, type: 3}
   socialDistancing: {fileID: 21300000, guid: 8416a1ca8052fe64cb610b87a9aadf54, type: 3}
   washingHands: {fileID: 21300000, guid: 3da002a531c53ab4783277e2bf33832d, type: 3}

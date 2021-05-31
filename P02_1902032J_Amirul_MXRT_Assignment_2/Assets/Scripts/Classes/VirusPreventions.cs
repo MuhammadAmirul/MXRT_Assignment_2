@@ -7,6 +7,8 @@ public class VirusPreventions
 {
     public GameManager gameManager;
 
+    public UIManager UIManagerScript;
+
     public int health;
     public GameObject enemyHealth;
     public Text enemyHealthText;
@@ -24,11 +26,11 @@ public class VirusPreventions
     public int index;
     public bool randomizedAnswer;
 
-    public bool firstCorrectAnswer, secondCorrectAnswer, thirdCorrectAnswer;
-
     public void GetGameObjectsAndTextComponents()
     {
         gameManager = GameObject.FindObjectOfType<GameManager>();
+
+        UIManagerScript = GameObject.FindObjectOfType<UIManager>();
 
         enemyHealth = gameManager.enemyHealth;
         enemyHealth.SetActive(false);
@@ -51,7 +53,7 @@ public class VirusPreventions
 
         randomizedAnswer = false;
 
-        firstCorrectAnswer = secondCorrectAnswer = thirdCorrectAnswer = false;
+        UIManagerScript.firstCorrectPreventionAnswer = UIManagerScript.secondCorrectPreventionAnswer = UIManagerScript.thirdCorrectPreventionAnswer = false;
     }
 
     public void ShowQuestionsUI()
@@ -143,7 +145,7 @@ public class VirusPreventions
         {
             health--;
             enemyHealthText.text = health.ToString();
-            firstCorrectAnswer = true;
+            UIManagerScript.firstCorrectPreventionAnswer = true;
             numberOfQuestions.Remove(index);
             randomizedAnswer = false;
         }
@@ -170,7 +172,7 @@ public class VirusPreventions
         {
             health--;
             enemyHealthText.text = health.ToString();
-            secondCorrectAnswer = true;
+            UIManagerScript.secondCorrectPreventionAnswer = true;
             numberOfQuestions.Remove(index);
             randomizedAnswer = false;
         }
@@ -197,7 +199,7 @@ public class VirusPreventions
         {
             health--;
             enemyHealthText.text = health.ToString();
-            thirdCorrectAnswer = true;
+            UIManagerScript.thirdCorrectPreventionAnswer = true;
             numberOfQuestions.Remove(index);
             randomizedAnswer = false;
         }
