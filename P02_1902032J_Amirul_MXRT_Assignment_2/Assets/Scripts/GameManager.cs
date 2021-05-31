@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject virusGameObject;
 
-    private int virusSpawn = 0;
+    public int virusSpawn = 0;
     private int maxVirusSpawn = 3;
 
     [Space]

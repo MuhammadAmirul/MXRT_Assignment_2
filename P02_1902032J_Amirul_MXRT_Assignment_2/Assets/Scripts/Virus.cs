@@ -5,12 +5,14 @@ using UnityEngine.UI;
 
 public class Virus : MonoBehaviour
 {
+    private GameManager gameManagerScript;
+
     public VirusPreventions virusPreventions;
 
     public SelectVirus selectVirusScript;
 
-    /*[SerializeField]
-    private int health;*/
+    [SerializeField]
+    private int health;
 
     [SerializeField]
     private GameObject enemyHealth;
@@ -34,6 +36,8 @@ public class Virus : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManagerScript = FindObjectOfType<GameManager>();
+
         virusPreventions = new VirusPreventions();
 
         virusPreventions.GetGameObjectsAndTextComponents();
@@ -54,7 +58,11 @@ public class Virus : MonoBehaviour
 
         if (virusPreventions.health <= 0)
         {
+            gameManagerScript.virusSpawn--;
+
             virusPreventions.CloseQuestionsUI();
+            selectVirusScript.isSelected = false;
+
             Destroy(this.gameObject);
         }
     }

@@ -33,10 +33,9 @@ public class VirusPreventions
         enemyHealth = gameManager.enemyHealth;
         enemyHealth.SetActive(false);
 
-        health = Random.Range(1, 3);
+        health = Random.Range(1, 4);
 
         enemyHealthText = gameManager.enemyHealthText.GetComponent<Text>();
-        enemyHealthText.text = health.ToString();
 
         questionText = gameManager.questionText.GetComponent<Text>();
 
@@ -62,6 +61,8 @@ public class VirusPreventions
         questionWindow.SetActive(true);
 
         answerButton.SetActive(true);
+
+        enemyHealthText.text = health.ToString();
     }
 
     public void CloseQuestionsUI()
