@@ -38,11 +38,11 @@ public class Virus : MonoBehaviour
     {
         gameManagerScript = FindObjectOfType<GameManager>();
 
+        selectVirusScript = FindObjectOfType<SelectVirus>();
+
         virusPreventions = new VirusPreventions();
 
         virusPreventions.GetGameObjectsAndTextComponents();
-
-        selectVirusScript = FindObjectOfType<SelectVirus>();
 
         this.gameObject.name = "Virus";
     }

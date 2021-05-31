@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    private SelectVirus selectVirusScript;
+
     [Header("Virus Script")]
     private Virus virusScript;
 
@@ -47,6 +49,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        selectVirusScript = FindObjectOfType<SelectVirus>();
         //virusScript = FindObjectOfType<Virus>();
         preventionWindow.SetActive(false);
     }
@@ -54,13 +57,19 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //UnlockPreventionKnowledge();
+        if (selectVirusScript.isSelected == true)
+        {
+            UnlockPreventionKnowledge();
+        }
+    }
+
+    public void ShowPreventionKnowledge()
+    {
+        preventionWindow.SetActive(true);
     }
 
     public void UnlockPreventionKnowledge()
     {
-        preventionWindow.SetActive(true);
-
         if (virusScript.virusPreventions.firstCorrectAnswer == true)
         {
             firstKnowledgeIcon.sprite = faceMask;

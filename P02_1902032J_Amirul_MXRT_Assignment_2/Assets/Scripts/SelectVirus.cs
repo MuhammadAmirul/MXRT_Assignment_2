@@ -7,11 +7,8 @@ public class SelectVirus : MonoBehaviour
 {
     public Answers answersScript;
 
-    [SerializeField]
-    private GameObject selectedObject;
-
-    [SerializeField]
-    private Transform virusPlaceholder;
+    /*[SerializeField]
+    private GameObject selectedObject;*/
 
     [SerializeField]
     private Camera arCamera;
@@ -30,10 +27,10 @@ public class SelectVirus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DestroyVirus();
+        VirusSelection();
     }
 
-    void DestroyVirus()
+    void VirusSelection()
     {
         if (Input.touchCount == 0)
             return;
@@ -46,11 +43,8 @@ public class SelectVirus : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit) && hit.transform.name == "Virus" && !isSelected)
             {
-                selectedObject = hit.transform.gameObject;
                 answersScript.virusScript = FindObjectOfType<Virus>();
                 isSelected = true;
-
-                selectedObject.transform.position = virusPlaceholder.position;
             }
         }
     }

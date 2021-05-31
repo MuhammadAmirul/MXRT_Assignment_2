@@ -33,7 +33,7 @@ public class VirusPreventions
         enemyHealth = gameManager.enemyHealth;
         enemyHealth.SetActive(false);
 
-        health = Random.Range(1, 4);
+        health = Random.Range(2, 4);
 
         enemyHealthText = gameManager.enemyHealthText.GetComponent<Text>();
 
@@ -76,7 +76,7 @@ public class VirusPreventions
 
     public void ShowQuestion()
     {
-        if (health > 0 && !randomizedAnswer)
+        if (!randomizedAnswer)
         {
             for (int i = 1; i <= health; i++)
             {
@@ -85,19 +85,19 @@ public class VirusPreventions
 
             index = Random.Range(numberOfQuestions[0], numberOfQuestions.Count);
             randomizedAnswer = true;
-        }
 
-        if (index == 1)
-        {
-            FirstQuestion();
-        }
-        else if (index == 2)
-        {
-            SecondQuestion();
-        }
-        else if (index == 3)
-        {
-            ThirdQuestion();
+            if (index == 1)
+            {
+                FirstQuestion();
+            }
+            else if (index == 2)
+            {
+                SecondQuestion();
+            }
+            else if (index == 3)
+            {
+                ThirdQuestion();
+            }
         }
     }
 
@@ -143,9 +143,9 @@ public class VirusPreventions
         {
             health--;
             enemyHealthText.text = health.ToString();
-            randomizedAnswer = false;
             firstCorrectAnswer = true;
             numberOfQuestions.Remove(index);
+            randomizedAnswer = false;
         }
     }
 
@@ -170,9 +170,9 @@ public class VirusPreventions
         {
             health--;
             enemyHealthText.text = health.ToString();
-            randomizedAnswer = false;
             secondCorrectAnswer = true;
             numberOfQuestions.Remove(index);
+            randomizedAnswer = false;
         }
     }
 
@@ -197,9 +197,9 @@ public class VirusPreventions
         {
             health--;
             enemyHealthText.text = health.ToString();
-            randomizedAnswer = false;
             thirdCorrectAnswer = true;
             numberOfQuestions.Remove(index);
+            randomizedAnswer = false;
         }
     }
 }
