@@ -33,7 +33,7 @@ public class VirusPreventions
         UIManagerScript = GameObject.FindObjectOfType<UIManager>();
 
         enemyHealth = gameManager.enemyHealth;
-        enemyHealth.SetActive(false);
+        //enemyHealth.SetActive(false);
 
         health = Random.Range(2, 4);
 
@@ -42,18 +42,37 @@ public class VirusPreventions
         questionText = gameManager.questionText.GetComponent<Text>();
 
         answerButton = gameManager.answerButton;
-        answerButton.SetActive(false);
+        //answerButton.SetActive(false);
 
         answerText[0] = gameManager.answerText[0].GetComponent<Text>();
         answerText[1] = gameManager.answerText[1].GetComponent<Text>();
         answerText[2] = gameManager.answerText[2].GetComponent<Text>();
 
         questionWindow = gameManager.questionWindow;
-        questionWindow.SetActive(false);
+        //questionWindow.SetActive(false);
 
-        randomizedAnswer = false;
+        //randomizedAnswer = false;
 
         UIManagerScript.firstCorrectPreventionAnswer = UIManagerScript.secondCorrectPreventionAnswer = UIManagerScript.thirdCorrectPreventionAnswer = false;
+    }
+
+    public void NullSettingsOnDeath()
+    {
+        gameManager = null;
+
+        UIManagerScript = null;
+
+        enemyHealthText = null;
+
+        questionText = null;
+
+        answerButton = null;
+
+        answerText[0] = null;
+        answerText[1] = null;
+        answerText[2] = null;
+
+        questionWindow = null;
     }
 
     public void ShowQuestionsUI()

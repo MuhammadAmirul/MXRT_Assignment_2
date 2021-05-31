@@ -1501,7 +1501,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60932834f5180d942a5a5cd8e72583b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virusScript: {fileID: 0}
+  gameManager: {fileID: 0}
+  virusTypeOneScript: {fileID: 0}
+  virusTypeTwoScript: {fileID: 0}
 --- !u!1 &702355771
 GameObject:
   m_ObjectHideFlags: 0
@@ -2899,7 +2901,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arPlaneManager: {fileID: 1057421725}
-  virusGameObject: {fileID: 6066607125310206302, guid: 1fdcd111953a0c04499315f6f926f5af, type: 3}
+  virusTypeOneGameObject: {fileID: 6066607125310206302, guid: 1fdcd111953a0c04499315f6f926f5af, type: 3}
+  virusTypeTwoGameObject: {fileID: 6066607125310206302, guid: 7adb7c391c5d88148920a02964316f06, type: 3}
+  virusType: 0
   virusSpawn: 0
   enemyHealth: {fileID: 1144040589}
   enemyHealthText: {fileID: 1886932842}
@@ -3562,6 +3566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98b091679f304934d85921801dcb9fdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   answersScript: {fileID: 0}
   arCamera: {fileID: 0}
   isSelected: 0

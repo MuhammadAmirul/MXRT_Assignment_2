@@ -7,9 +7,9 @@ public class VirusTypeTwo : MonoBehaviour
 {
     private GameManager gameManagerScript;
 
-    public VirusSymptoms virusSymptoms;
-
     public SelectVirus selectVirusScript;
+
+    public VirusSymptoms virusSymptoms;
 
     [SerializeField]
     private int health;
@@ -33,7 +33,7 @@ public class VirusTypeTwo : MonoBehaviour
         virusSymptoms = new VirusSymptoms();
         virusSymptoms.GetGameObjectsAndTextComponents();
 
-        this.gameObject.name = "Virus";
+        this.gameObject.name = "Virus_Type_Two";
     }
 
     // Update is called once per frame
@@ -49,6 +49,7 @@ public class VirusTypeTwo : MonoBehaviour
         {
             gameManagerScript.virusSpawn--;
             virusSymptoms.CloseQuestionsUI();
+            virusSymptoms.NullSettingsOnDeath();
 
             selectVirusScript.isSelected = false;
 

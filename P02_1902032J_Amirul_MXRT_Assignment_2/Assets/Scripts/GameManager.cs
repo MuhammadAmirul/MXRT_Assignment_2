@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     public Text questionText;
 
     public GameObject answerButton;
-    public GameObject[] answerButtons = new GameObject[3];
+    //public GameObject[] answerButtons = new GameObject[3];
     public Text[] answerText = new Text[3];
 
     public GameObject questionWindow;
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
                 {
                     Instantiate(virusTypeTwoGameObject, planePosition, Quaternion.identity);
                 }
-                
+
                 virusSpawn++;
             }
         }

@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Answers : MonoBehaviour
 {
-    public GameManager gameManager;
+    public SelectVirus selectVirusScript;
 
     public VirusTypeOne virusTypeOneScript;
     public VirusTypeTwo virusTypeTwoScript;
 
     private void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        selectVirusScript = FindObjectOfType<SelectVirus>();
     }
 
     public void FirstAnswer()
     {
-        if (gameManager.virusType == 1)
+        if (selectVirusScript.virusName == "Virus_Type_One")
         {
             virusTypeOneScript.virusPreventions.FirstAnswer();
 
@@ -33,7 +33,7 @@ public class Answers : MonoBehaviour
                 virusTypeOneScript.virusPreventions.ThirdQuestionSelection();
             }
         }
-        else if (gameManager.virusType == 2)
+        else if (selectVirusScript.virusName == "Virus_Type_Two")
         {
             virusTypeTwoScript.virusSymptoms.FirstAnswer();
 
@@ -50,7 +50,7 @@ public class Answers : MonoBehaviour
 
     public void SecondAnswer()
     {
-        if (gameManager.virusType == 1)
+        if (selectVirusScript.virusName == "Virus_Type_One")
         {
             virusTypeOneScript.virusPreventions.SecondAnswer();
 
@@ -67,7 +67,7 @@ public class Answers : MonoBehaviour
                 virusTypeOneScript.virusPreventions.ThirdQuestionSelection();
             }
         }
-        else if (gameManager.virusType == 2)
+        else if (selectVirusScript.virusName == "Virus_Type_Two")
         {
             virusTypeTwoScript.virusSymptoms.SecondAnswer();
 
