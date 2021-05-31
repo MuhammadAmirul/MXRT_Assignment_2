@@ -51,5 +51,10 @@ public class Virus : MonoBehaviour
             virusPreventions.ShowQuestionsUI();
             virusPreventions.ShowQuestion();
         }
+
+        if (virusPreventions.health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

@@ -21,10 +21,10 @@ public class VirusPreventions
 
     public List<int> numberOfQuestions = new List<int>();
 
-    public bool correctAnswer;
-
     public int index;
     public bool randomizedAnswer;
+
+    public bool firstCorrectAnswer, secondCorrectAnswer, thirdCorrectAnswer;
 
     public void GetGameObjectsAndTextComponents()
     {
@@ -51,6 +51,8 @@ public class VirusPreventions
         questionWindow.SetActive(false);
 
         randomizedAnswer = false;
+
+        firstCorrectAnswer = secondCorrectAnswer = thirdCorrectAnswer = false;
     }
 
     public void ShowQuestionsUI()
@@ -132,6 +134,7 @@ public class VirusPreventions
             health--;
             enemyHealthText.text = health.ToString();
             randomizedAnswer = false;
+            firstCorrectAnswer = true;
             numberOfQuestions.Remove(index);
         }
     }
@@ -158,6 +161,7 @@ public class VirusPreventions
             health--;
             enemyHealthText.text = health.ToString();
             randomizedAnswer = false;
+            secondCorrectAnswer = true;
             numberOfQuestions.Remove(index);
         }
     }
@@ -184,6 +188,7 @@ public class VirusPreventions
             health--;
             enemyHealthText.text = health.ToString();
             randomizedAnswer = false;
+            thirdCorrectAnswer = true;
             numberOfQuestions.Remove(index);
         }
     }
