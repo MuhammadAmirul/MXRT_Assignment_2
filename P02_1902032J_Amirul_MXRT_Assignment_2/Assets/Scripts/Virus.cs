@@ -34,9 +34,9 @@ public class Virus : MonoBehaviour
 
         virusPreventions = new VirusPreventions();
 
-        virusPreventions.GetGameObjectsAndTextComponents();
+        //virusPreventions.GetGameObjectsAndTextComponents();
 
-        this.gameObject.name = "Virus_Type_One";
+        this.gameObject.name = "Virus";
     }
 
     // Update is called once per frame

@@ -49,6 +49,8 @@ public class SelectVirus : MonoBehaviour
             if (Physics.Raycast(ray, out hit) && hit.transform.name == "Virus" && !isSelected)
             {
                 answersScript.virusScript = FindObjectOfType<Virus>();
+                answersScript.virusScript.virusPreventions.GetGameObjectsAndTextComponents();
+
                 isSelected = true;
             }
         }
