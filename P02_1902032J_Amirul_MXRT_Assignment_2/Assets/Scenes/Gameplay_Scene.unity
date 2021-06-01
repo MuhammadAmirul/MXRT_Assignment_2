@@ -1489,7 +1489,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60932834f5180d942a5a5cd8e72583b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectVirusScript: {fileID: 0}
   virusScript: {fileID: 0}
 --- !u!1 &702355771
 GameObject:
@@ -2888,7 +2887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arPlaneManager: {fileID: 1057421725}
-  virusGameObject: {fileID: 0}
+  virusGameObject: {fileID: 6066607125310206302, guid: 1fdcd111953a0c04499315f6f926f5af, type: 3}
   virusSpawn: 0
   enemyHealth: {fileID: 1144040589}
   enemyHealthText: {fileID: 1886932842}

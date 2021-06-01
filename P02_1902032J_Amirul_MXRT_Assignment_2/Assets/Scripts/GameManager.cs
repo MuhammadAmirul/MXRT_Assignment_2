@@ -6,15 +6,18 @@ using UnityEngine.XR.ARFoundation;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("AR Plane Manager")]
     [SerializeField]
     private ARPlaneManager arPlaneManager;
 
+    [Header("Virus GameObject")]
     [SerializeField]
     private GameObject virusGameObject;
 
     public int virusSpawn = 0;
-    private int maxVirusSpawn = 3;
+    private int maxVirusSpawn = 2;
 
+    [Header("Virus Health Variables")]
     [Space]
     public GameObject enemyHealth;
     public Text enemyHealthText;

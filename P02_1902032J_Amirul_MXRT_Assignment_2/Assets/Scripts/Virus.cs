@@ -23,8 +23,6 @@ public class Virus : MonoBehaviour
     [SerializeField]
     private GameObject questionWindow;
 
-    private string question;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -55,7 +53,6 @@ public class Virus : MonoBehaviour
             virusPreventions.CloseQuestionsUI();
             virusPreventions.NullSettingsOnDeath();
 
-            virusPreventions.CloseQuestionsUI();
             selectVirusScript.isSelected = false;
 
             Destroy(this.gameObject);

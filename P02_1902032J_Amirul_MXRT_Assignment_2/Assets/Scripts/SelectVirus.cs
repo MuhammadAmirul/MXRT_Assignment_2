@@ -5,7 +5,7 @@ using UnityEngine.XR.ARFoundation;
 
 public class SelectVirus : MonoBehaviour
 {
-    public SelectVirus gameManager;
+    //public SelectVirus selectVirusScript;
 
     public Answers answersScript;
 
@@ -22,7 +22,7 @@ public class SelectVirus : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = FindObjectOfType<SelectVirus>();
+        //selectVirusScript = FindObjectOfType<SelectVirus>();
         answersScript = FindObjectOfType<Answers>();
 
         arCamera = FindObjectOfType<Camera>();

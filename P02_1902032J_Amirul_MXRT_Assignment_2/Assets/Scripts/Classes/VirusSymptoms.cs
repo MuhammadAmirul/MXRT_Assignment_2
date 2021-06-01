@@ -25,7 +25,7 @@ public class VirusSymptoms
     public List<int> numberOfQuestions = new List<int>();
 
     public int index;
-    public bool randomizedAnswer;
+    public bool randomizedAnswer = false;
 
     public void GetGameObjectsAndTextComponents()
     {
