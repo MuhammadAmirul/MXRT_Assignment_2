@@ -14,37 +14,69 @@ public class Answers : MonoBehaviour
     }
     public void FirstAnswer()
     {
-        virusScript.virusPreventions.FirstAnswer();
+        if (virusScript.virusType == 1)
+        {
+            virusScript.virusPreventions.FirstAnswer();
 
-        if (virusScript.virusPreventions.index == 1)
-        {
-            virusScript.virusPreventions.FirstQuestionSelection();
+            if (virusScript.virusPreventions.index == 1)
+            {
+                virusScript.virusPreventions.FirstQuestionSelection();
+            }
+            else if (virusScript.virusPreventions.index == 2)
+            {
+                virusScript.virusPreventions.SecondQuestionSelection();
+            }
+            else if (virusScript.virusPreventions.index == 3)
+            {
+                virusScript.virusPreventions.ThirdQuestionSelection();
+            }
         }
-        else if (virusScript.virusPreventions.index == 2)
+        else
         {
-            virusScript.virusPreventions.SecondQuestionSelection();
-        }
-        else if (virusScript.virusPreventions.index == 3)
-        {
-            virusScript.virusPreventions.ThirdQuestionSelection();
+            virusScript.virusSymptoms.FirstAnswer();
+
+            if (virusScript.virusSymptoms.index == 1)
+            {
+                virusScript.virusSymptoms.FirstQuestionSelection();
+            }
+            else if (virusScript.virusSymptoms.index == 2)
+            {
+                virusScript.virusSymptoms.SecondQuestionSelection();
+            }
         }
     }
 
     public void SecondAnswer()
     {
-        virusScript.virusPreventions.SecondAnswer();
+        if (virusScript.virusType == 1)
+        {
+            virusScript.virusPreventions.SecondAnswer();
 
-        if (virusScript.virusPreventions.index == 1)
-        {
-            virusScript.virusPreventions.FirstQuestionSelection();
+            if (virusScript.virusPreventions.index == 1)
+            {
+                virusScript.virusPreventions.FirstQuestionSelection();
+            }
+            else if (virusScript.virusPreventions.index == 2)
+            {
+                virusScript.virusPreventions.SecondQuestionSelection();
+            }
+            else if (virusScript.virusPreventions.index == 3)
+            {
+                virusScript.virusPreventions.ThirdQuestionSelection();
+            }
         }
-        else if (virusScript.virusPreventions.index == 2)
+        else
         {
-            virusScript.virusPreventions.SecondQuestionSelection();
-        }
-        else if (virusScript.virusPreventions.index == 3)
-        {
-            virusScript.virusPreventions.ThirdQuestionSelection();
+            virusScript.virusSymptoms.SecondAnswer();
+
+            if (virusScript.virusSymptoms.index == 1)
+            {
+                virusScript.virusSymptoms.FirstQuestionSelection();
+            }
+            else if (virusScript.virusSymptoms.index == 2)
+            {
+                virusScript.virusSymptoms.SecondQuestionSelection();
+            }
         }
     }
 

@@ -9,10 +9,10 @@ public class Virus : MonoBehaviour
 
     public SelectVirus selectVirusScript;
 
-    public VirusPreventions virusPreventions;
+    public int virusType;
 
-    [SerializeField]
-    private int health;
+    public VirusPreventions virusPreventions;
+    public VirusSymptoms virusSymptoms;
 
     [SerializeField]
     private GameObject enemyHealth;
@@ -30,10 +30,18 @@ public class Virus : MonoBehaviour
 
         selectVirusScript = FindObjectOfType<SelectVirus>();
 
-        virusPreventions = new VirusPreventions();
-        virusPreventions.SetHealth();
+        virusType = Random.Range(1, 3);
 
-        //virusPreventions.GetGameObjectsAndTextComponents();
+        if (virusType == 1)
+        {
+            virusPreventions = new VirusPreventions();
+            virusPreventions.SetHealth();
+        }
+        else if (virusType == 2)
+        {
+            virusSymptoms = new VirusSymptoms();
+            virusSymptoms.SetHealth();
+        }
 
         this.gameObject.name = "Virus";
     }
@@ -43,16 +51,39 @@ public class Virus : MonoBehaviour
     {
         if (selectVirusScript.isSelected == true)
         {
-            virusPreventions.ShowQuestionsUI();
-            virusPreventions.ShowQuestion();
+            if (virusType == 1)
+            {
+                virusPreventions.ShowQuestionsUI();
+                virusPreventions.ShowQuestion();
+            }
+            else
+            {
+                virusSymptoms.ShowQuestionsUI();
+                virusSymptoms.ShowQuestion();
+            }
         }
 
+        DestroyVirusTypes();
+    }
+
+    void DestroyVirusTypes()
+    {
         if (virusPreventions.health <= 0)
         {
             gameManagerScript.virusSpawn--;
 
             virusPreventions.CloseQuestionsUI();
             virusPreventions.NullSettingsOnDeath();
+
+            selectVirusScript.isSelected = false;
+
+            Destroy(this.gameObject);
+        }
+
+        if (virusSymptoms.health <= 0)
+        {
+            virusSymptoms.CloseQuestionsUI();
+            virusSymptoms.NullSettingsOnDeath();
 
             selectVirusScript.isSelected = false;
 

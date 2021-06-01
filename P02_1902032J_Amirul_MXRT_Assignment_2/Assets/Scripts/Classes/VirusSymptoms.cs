@@ -36,7 +36,7 @@ public class VirusSymptoms
         enemyHealth = gameManager.enemyHealth;
         //enemyHealth.SetActive(false);
 
-        health = Random.Range(1, 3);
+        //health = Random.Range(1, 3);
 
         enemyHealthText = gameManager.enemyHealthText.GetComponent<Text>();
 
@@ -55,6 +55,11 @@ public class VirusSymptoms
         //randomizedAnswer = false;
 
         UIManagerScript.firstCorrectSymptomsAnswer = UIManagerScript.secondCorrectSymptomsAnswer = false;
+    }
+
+    public void SetHealth()
+    {
+        health = Random.Range(1, 3);
     }
 
     public void NullSettingsOnDeath()
