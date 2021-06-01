@@ -61,14 +61,14 @@ public class Virus : MonoBehaviour
                 virusSymptoms.ShowQuestionsUI();
                 virusSymptoms.ShowQuestion();
             }
-        }
 
-        DestroyVirusTypes();
+            DestroyVirusTypes();
+        }
     }
 
     void DestroyVirusTypes()
     {
-        if (virusPreventions.health <= 0)
+        if (virusPreventions.health <= 0 && virusType == 1)
         {
             gameManagerScript.virusSpawn--;
 
@@ -79,8 +79,7 @@ public class Virus : MonoBehaviour
 
             Destroy(this.gameObject);
         }
-
-        if (virusSymptoms.health <= 0)
+        else if (virusSymptoms.health <= 0 && virusType == 2)
         {
             virusSymptoms.CloseQuestionsUI();
             virusSymptoms.NullSettingsOnDeath();

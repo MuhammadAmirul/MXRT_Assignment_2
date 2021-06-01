@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [Header("Virus Script")]
-    private Virus virusScript;
+    /*[Header("Virus Script")]
+    private Virus virusScript;*/
 
     [Header("Virus Prevention Window")]
     [SerializeField]
@@ -91,6 +91,7 @@ public class UIManager : MonoBehaviour
         preventionIndividualWindow.SetActive(false);
 
         firstCorrectPreventionAnswer = secondCorrectPreventionAnswer = thirdCorrectPreventionAnswer = false;
+        firstCorrectSymptomsAnswer = secondCorrectSymptomsAnswer = false;
     }
 
     // Update is called once per frame

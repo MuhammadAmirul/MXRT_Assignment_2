@@ -52,8 +52,6 @@ public class VirusPreventions
         //questionWindow.SetActive(false);
 
         //randomizedAnswer = false;
-
-        UIManagerScript.firstCorrectPreventionAnswer = UIManagerScript.secondCorrectPreventionAnswer = UIManagerScript.thirdCorrectPreventionAnswer = false;
     }
 
     public void SetHealth()

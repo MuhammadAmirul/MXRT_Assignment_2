@@ -53,8 +53,6 @@ public class VirusSymptoms
         //questionWindow.SetActive(false);
 
         //randomizedAnswer = false;
-
-        UIManagerScript.firstCorrectSymptomsAnswer = UIManagerScript.secondCorrectSymptomsAnswer = false;
     }
 
     public void SetHealth()

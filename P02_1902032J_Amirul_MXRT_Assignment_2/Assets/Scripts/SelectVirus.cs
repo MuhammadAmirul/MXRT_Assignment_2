@@ -49,6 +49,7 @@ public class SelectVirus : MonoBehaviour
             {
                 virusScript = FindObjectOfType<Virus>();
                 answersScript.virusScript = FindObjectOfType<Virus>();
+                Debug.Log("Virus Type: " + virusScript.virusType);
 
                 if (virusScript.virusType == 1)
                 {
