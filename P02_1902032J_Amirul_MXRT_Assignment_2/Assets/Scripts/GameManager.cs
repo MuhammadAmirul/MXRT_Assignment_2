@@ -10,9 +10,35 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private ARPlaneManager arPlaneManager;
 
+    private UIManager uiManagerScript;
+
     [Header("Virus GameObject")]
     [SerializeField]
     private GameObject virusGameObject;
+
+    [Header("Game UI")]
+    [SerializeField]
+    private GameObject virusPreventionButton;
+    [SerializeField]
+    private GameObject virusSymptomsButton;
+    [SerializeField]
+    private GameObject playerHealthImage;
+    [SerializeField]
+    private GameObject quitButton;
+    [SerializeField]
+    private GameObject knowledgePanel;
+    [SerializeField]
+    private GameObject questionsPanel;
+    [SerializeField]
+    private GameObject individualKnowledgePanel;
+
+    [Header("Quit UI")]
+    [SerializeField]
+    private GameObject quitSelection;
+
+    [Header("Lose Screen GameObject")]
+    [SerializeField]
+    private GameObject loseScreen;
 
     public int virusSpawn = 0;
     private int maxVirusSpawn = 3;
@@ -39,6 +65,20 @@ public class GameManager : MonoBehaviour
         virusSpawn = 0;
         playerHealth = 100;
 
+        uiManagerScript.enabled = true;
+
+        virusPreventionButton.SetActive(true);
+        virusSymptomsButton.SetActive(true);
+        playerHealthImage.SetActive(true);
+        quitButton.SetActive(true);
+        knowledgePanel.SetActive(true);
+        questionsPanel.SetActive(true);
+        individualKnowledgePanel.SetActive(true);
+
+        quitSelection.SetActive(false);
+
+        loseScreen.SetActive(false);
+
         playerHealthText.text = playerHealth.ToString();
     }
 
@@ -46,8 +86,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         arPlaneManager.planesChanged += SpawnVirus;
-        //Testing();
+
+        PlayerDeath();
     }
+
     void SpawnVirus(ARPlanesChangedEventArgs virusObject)
     {
         if (virusSpawn < maxVirusSpawn)
@@ -64,19 +106,33 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    /*void Testing()
+    void PlayerDeath()
     {
-        if (virusSpawn < maxVirusSpawn)
+        if (playerHealth <= 0)
         {
-            for (int i = 0; i < maxVirusSpawn; i++)
-            {
-                Vector3 planePosition = new Vector3(Random.Range(placeHolder.position.x - placeHolder.localScale.x / 2, placeHolder.position.x + placeHolder.localScale.x / 2),
-                                                    placeHolder.position.y,
-                                                    Random.Range(placeHolder.position.z - placeHolder.localScale.z / 2, placeHolder.position.z + placeHolder.localScale.z / 2));
+            virusPreventionButton.SetActive(false);
+            virusSymptomsButton.SetActive(false);
+            playerHealthImage.SetActive(false);
+            quitButton.SetActive(false);
+            knowledgePanel.SetActive(false);
+            questionsPanel.SetActive(false);
+            individualKnowledgePanel.SetActive(false);
 
-                Instantiate(virusGameObject, planePosition, Quaternion.identity);
-                virusSpawn++;
-            }
+            loseScreen.SetActive(true);
         }
-    }*/
+    }
+
+    public void ShowQuitSelection()
+    {
+        quitSelection.SetActive(true);
+
+        uiManagerScript.enabled = false;
+    }
+
+    public void CloseQuitSelection()
+    {
+        quitSelection.SetActive(false);
+
+        uiManagerScript.enabled = true;
+    }
 }

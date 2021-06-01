@@ -232,57 +232,78 @@ public class UIManager : MonoBehaviour
 
     public void ShowFaceMaskKnowledge()
     {
-        preventionIndividualWindow.SetActive(true);
-        smallPreventionWindow.SetActive(false);
+        if (firstCorrectPreventionAnswer == true)
+        {
+            preventionIndividualWindow.SetActive(true);
+            smallPreventionWindow.SetActive(false);
 
-        preventionIcon.sprite = faceMask;
-        preventionTitleText.text = faceMaskTitle;
-        preventionInformationText.text = faceMaskInformation;
+            preventionIcon.sprite = faceMask;
+            preventionTitleText.text = faceMaskTitle;
+            preventionInformationText.text = faceMaskInformation;
+        }
     }
 
     public void ShowSocialDistancingKnowledge()
     {
-        preventionIndividualWindow.SetActive(true);
-        smallPreventionWindow.SetActive(false);
+        if (secondCorrectPreventionAnswer == true)
+        {
+            preventionIndividualWindow.SetActive(true);
+            smallPreventionWindow.SetActive(false);
 
-        preventionIcon.sprite = socialDistancing;
-        preventionTitleText.text = socialDistancingTitle;
-        preventionInformationText.text = socialDistancingInformation;
+            preventionIcon.sprite = socialDistancing;
+            preventionTitleText.text = socialDistancingTitle;
+            preventionInformationText.text = socialDistancingInformation;
+        }
     }
 
     public void ShowWashingHandsKnowledge()
     {
-        preventionIndividualWindow.SetActive(true);
-        smallPreventionWindow.SetActive(false);
+        if (thirdCorrectPreventionAnswer == true)
+        {
+            preventionIndividualWindow.SetActive(true);
+            smallPreventionWindow.SetActive(false);
 
-        preventionIcon.sprite = washingHands;
-        preventionTitleText.text = wasingHandsTitle;
-        preventionInformationText.text = wasingHandsInformation;
+            preventionIcon.sprite = washingHands;
+            preventionTitleText.text = wasingHandsTitle;
+            preventionInformationText.text = wasingHandsInformation;
+        }
     }
 
     public void ShowCommonSymptomsKnowledge()
     {
-        symptomsIndividualWindow.SetActive(true);
-        smallSymptomsWindow.SetActive(false);
+        if (firstCorrectSymptomsAnswer == true)
+        {
+            symptomsIndividualWindow.SetActive(true);
+            smallSymptomsWindow.SetActive(false);
 
-        symptomsIcon.sprite = symptomsSprite;
-        symptomsTitleText.text = commonSymptomsTitle;
-        symptomsInformationText.text = commonSymptomsInformation;
+            symptomsIcon.sprite = symptomsSprite;
+            symptomsTitleText.text = commonSymptomsTitle;
+            symptomsInformationText.text = commonSymptomsInformation;
+        }
     }
 
     public void ShowLessCommonSymptomsKnowledge()
     {
-        symptomsIndividualWindow.SetActive(true);
-        smallSymptomsWindow.SetActive(false);
+        if (secondCorrectSymptomsAnswer == true)
+        {
+            symptomsIndividualWindow.SetActive(true);
+            smallSymptomsWindow.SetActive(false);
 
-        symptomsIcon.sprite = symptomsSprite;
-        symptomsTitleText.text = lessCommonSymptomsTitle;
-        symptomsInformationText.text = lessCommonSymptomsInformation;
+            symptomsIcon.sprite = symptomsSprite;
+            symptomsTitleText.text = lessCommonSymptomsTitle;
+            symptomsInformationText.text = lessCommonSymptomsInformation;
+        }
     }
 
-    public void CloseKnowledgeWindow()
+    public void ClosePreventionKnowledgeWindow()
     {
         preventionIndividualWindow.SetActive(false);
+        viewingKnowledge = false;
+    }
+
+    public void CloseSymptomsKnowledgeWindow()
+    {
+        symptomsIndividualWindow.SetActive(false);
         viewingKnowledge = false;
     }
 }
