@@ -3013,7 +3013,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arPlaneManager: {fileID: 1057421725}
   placeHolder: {fileID: 333020568}
-  virusGameObject: {fileID: 6066607125310206302, guid: 1fdcd111953a0c04499315f6f926f5af, type: 3}
+  virusGameObject: {fileID: 7508844906035172827, guid: f514388131eca834f8a10e8cee7202d5, type: 3}
   virusSpawn: 0
   enemyHealth: {fileID: 1144040589}
   enemyHealthText: {fileID: 1886932842}
