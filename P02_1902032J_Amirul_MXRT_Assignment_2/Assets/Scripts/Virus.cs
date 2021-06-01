@@ -56,7 +56,7 @@ public class Virus : MonoBehaviour
                 virusPreventions.ShowQuestionsUI();
                 virusPreventions.ShowQuestion();
             }
-            else
+            else if (virusType == 2)
             {
                 virusSymptoms.ShowQuestionsUI();
                 virusSymptoms.ShowQuestion();
