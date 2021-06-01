@@ -35,7 +35,7 @@ public class VirusPreventions
         enemyHealth = gameManager.enemyHealth;
         //enemyHealth.SetActive(false);
 
-        health = Random.Range(2, 4);
+        //health = Random.Range(2, 4);
 
         enemyHealthText = gameManager.enemyHealthText.GetComponent<Text>();
 
@@ -54,6 +54,11 @@ public class VirusPreventions
         //randomizedAnswer = false;
 
         UIManagerScript.firstCorrectPreventionAnswer = UIManagerScript.secondCorrectPreventionAnswer = UIManagerScript.thirdCorrectPreventionAnswer = false;
+    }
+
+    public void SetHealth()
+    {
+        health = Random.Range(2, 4);
     }
 
     public void NullSettingsOnDeath()

@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     private GameObject virusGameObject;
 
     public int virusSpawn = 0;
-    private int maxVirusSpawn = 2;
+    private int maxVirusSpawn = 3;
 
     [Header("Virus Health Variables")]
     [Space]
@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         arPlaneManager.planesChanged += SpawnVirus;
+        //Testing();
     }
     void SpawnVirus(ARPlanesChangedEventArgs virusObject)
     {
@@ -59,6 +60,18 @@ public class GameManager : MonoBehaviour
                                                     Random.Range(plane.transform.position.z - plane.transform.localScale.z / 2, plane.transform.position.z + plane.transform.localScale.z / 2));
 
                 Instantiate(virusGameObject, planePosition, Quaternion.identity);
+                virusSpawn++;
+            }
+        }
+    }
+
+    void Testing()
+    {
+        if (virusSpawn < maxVirusSpawn)
+        {
+            for (int i = 0; i < maxVirusSpawn; i++)
+            {
+                Instantiate(virusGameObject, arPlaneManager.transform.position, Quaternion.identity);
                 virusSpawn++;
             }
         }

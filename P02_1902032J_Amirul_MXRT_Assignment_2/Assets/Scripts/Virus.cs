@@ -31,6 +31,7 @@ public class Virus : MonoBehaviour
         selectVirusScript = FindObjectOfType<SelectVirus>();
 
         virusPreventions = new VirusPreventions();
+        virusPreventions.SetHealth();
 
         //virusPreventions.GetGameObjectsAndTextComponents();
 

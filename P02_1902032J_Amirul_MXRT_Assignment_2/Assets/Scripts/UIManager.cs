@@ -35,8 +35,8 @@ public class UIManager : MonoBehaviour
                                                  "\nleast 1 metre from each \nother in crowded places.";
 
     private string wasingHandsTitle = "Washing Hands With Soap";
-    private string wasingHandsInformation = "Regularly washing hands \nwith soap keeps us healthy \nand can reduce the spread " +
-                                            "\nof COVID-19. Avoid touching \nyour face or food as you \nmay have touched a \ncontaminated surface.";
+    private string wasingHandsInformation = "Regularly washing hands with \n soap keeps us healthy and \n can reduce the spread of COVID-19. " +
+                                            "\nAvoid touching your face or food \nas you may have touched a \ncontaminated surface.";
 
     [Header("Virus Preventions Booleans")]
     public bool firstCorrectPreventionAnswer, secondCorrectPreventionAnswer, thirdCorrectPreventionAnswer;
@@ -99,14 +99,14 @@ public class UIManager : MonoBehaviour
 
     }*/
 
-    public void ShowPreventionKnowledge()
+    public void ShowMiniPreventionKnowledge()
     {
         smallPreventionWindow.SetActive(true);
 
         ShowUnlockPreventionKnowledge();
     }
 
-    public void ClosePreventionWindow()
+    public void CloseMiniPreventionWindow()
     {
         smallPreventionWindow.SetActive(false);
     }
@@ -135,6 +135,7 @@ public class UIManager : MonoBehaviour
     public void ShowFaceMaskKnowledge()
     {
         preventionIndividualWindow.SetActive(true);
+        smallPreventionWindow.SetActive(false);
 
         icon.sprite = faceMask;
         titleText.text = faceMaskTitle;
@@ -144,6 +145,7 @@ public class UIManager : MonoBehaviour
     public void ShowSocialDistancingKnowledge()
     {
         preventionIndividualWindow.SetActive(true);
+        smallPreventionWindow.SetActive(false);
 
         icon.sprite = socialDistancing;
         titleText.text = socialDistancingTitle;
@@ -153,9 +155,15 @@ public class UIManager : MonoBehaviour
     public void ShowWashingHandsKnowledge()
     {
         preventionIndividualWindow.SetActive(true);
+        smallPreventionWindow.SetActive(false);
 
         icon.sprite = washingHands;
         titleText.text = wasingHandsTitle;
         informationText.text = wasingHandsInformation;
+    }
+
+    public void CloseKnowledgeWindow()
+    {
+        preventionIndividualWindow.SetActive(false);
     }
 }
