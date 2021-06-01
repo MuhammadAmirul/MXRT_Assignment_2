@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     [Header("AR Plane Manager")]
     [SerializeField]
     private ARPlaneManager arPlaneManager;
-
-    private UIManager uiManagerScript;
 
     [Header("Virus GameObject")]
     [SerializeField]
@@ -64,8 +63,6 @@ public class GameManager : MonoBehaviour
     {
         virusSpawn = 0;
         playerHealth = 100;
-
-        uiManagerScript.enabled = true;
 
         virusPreventionButton.SetActive(true);
         virusSymptomsButton.SetActive(true);
@@ -122,17 +119,30 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Retry()
+    {
+        SceneManager.LoadScene("Gameplay_Scene");
+    }
+
     public void ShowQuitSelection()
     {
         quitSelection.SetActive(true);
 
-        uiManagerScript.enabled = false;
+        Button preventionButton = virusPreventionButton.GetComponent<Button>();
+        Button symptomsButton = virusSymptomsButton.GetComponent<Button>();
+
+        preventionButton.interactable = false;
+        symptomsButton.interactable = false;
     }
 
     public void CloseQuitSelection()
     {
         quitSelection.SetActive(false);
 
-        uiManagerScript.enabled = true;
+        Button preventionButton = virusPreventionButton.GetComponent<Button>();
+        Button symptomsButton = virusSymptomsButton.GetComponent<Button>();
+
+        preventionButton.interactable = true;
+        symptomsButton.interactable = true;
     }
 }

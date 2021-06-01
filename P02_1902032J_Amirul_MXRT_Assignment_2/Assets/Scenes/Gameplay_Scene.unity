@@ -3857,11 +3857,11 @@ MonoBehaviour:
   virusPreventionButton: {fileID: 1999045253}
   virusSymptomsButton: {fileID: 197005638}
   playerHealthImage: {fileID: 1270601171}
-  quitButton: {fileID: 0}
+  quitButton: {fileID: 1935605942}
   knowledgePanel: {fileID: 1129852950}
   questionsPanel: {fileID: 652930672}
   individualKnowledgePanel: {fileID: 891462810}
-  quitSelection: {fileID: 0}
+  quitSelection: {fileID: 1736742584}
   loseScreen: {fileID: 925707635}
   virusSpawn: 0
   enemyHealth: {fileID: 1144040589}
