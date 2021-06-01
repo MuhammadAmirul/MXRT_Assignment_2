@@ -21,15 +21,7 @@ public class Virus : MonoBehaviour
     private Text enemyHealthText;
 
     [SerializeField]
-    private GameObject[] answerButtons = new GameObject[3];
-
-    [SerializeField]
-    private Text[] answerText = new Text[3];
-
-    [SerializeField]
     private GameObject questionWindow;
-
-    List<int> numberOfQuestions = new List<int>();
 
     private string question;
 
@@ -59,12 +51,9 @@ public class Virus : MonoBehaviour
         if (virusPreventions.health <= 0)
         {
             gameManagerScript.virusSpawn--;
-<<<<<<< HEAD:P02_1902032J_Amirul_MXRT_Assignment_2/Assets/Scripts/VirusTypeOne.cs
 
             virusPreventions.CloseQuestionsUI();
             virusPreventions.NullSettingsOnDeath();
-=======
->>>>>>> parent of 72981ad (Made several changes to scripts):P02_1902032J_Amirul_MXRT_Assignment_2/Assets/Scripts/Virus.cs
 
             virusPreventions.CloseQuestionsUI();
             selectVirusScript.isSelected = false;

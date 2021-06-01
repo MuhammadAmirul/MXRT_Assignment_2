@@ -55,19 +55,7 @@ public class GameManager : MonoBehaviour
                                                     plane.transform.position.y,
                                                     Random.Range(plane.transform.position.z - plane.transform.localScale.z / 2, plane.transform.position.z + plane.transform.localScale.z / 2));
 
-<<<<<<< HEAD
-                if (virusType == 1)
-                {
-                    Instantiate(virusTypeOneGameObject, planePosition, Quaternion.identity);
-                }
-                else if (virusType == 2)
-                {
-                    Instantiate(virusTypeTwoGameObject, planePosition, Quaternion.identity);
-                }
-
-=======
                 Instantiate(virusGameObject, planePosition, Quaternion.identity);
->>>>>>> parent of 72981ad (Made several changes to scripts)
                 virusSpawn++;
             }
         }

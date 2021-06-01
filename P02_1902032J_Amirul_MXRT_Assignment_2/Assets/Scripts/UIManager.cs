@@ -10,27 +10,39 @@ public class UIManager : MonoBehaviour
 
     [Header("Virus Prevention Window")]
     [SerializeField]
-    private GameObject preventionWindow;
+    private GameObject smallPreventionWindow;
 
     [Header("Prevention Individual Window")]
     [SerializeField]
     private GameObject preventionIndividualWindow;
 
-    #region Face Mask Information Variables
-    [Header("Face Mask Information Variables")]
+    #region Prevention Information Variables
+    [Header("Prevention Information Variables")]
     [SerializeField]
     private Image icon;
     [SerializeField]
     private Text titleText;
     [SerializeField]
     private Text informationText;
+    #endregion
 
     private string faceMaskTitle = "Face Mask";
-    private string faceMaskInformation = "Face Mask are essential to \n wear when going to public \n areas. It helps protect, \n prevent transmissions and \n save lives from COVID-19.";
-    #endregion
+    private string faceMaskInformation = "Face Mask are essential to \nwear when going to public \n areas. It helps protect, " +
+                                         "\n prevent transmissions and \n save lives from COVID-19.";
+
+    private string socialDistancingTitle = "Social Distancing";
+    private string socialDistancingInformation = "Social Distancing helps limit \nthe spread of COVID-19 by \nkeeping a distance of at " +
+                                                 "\nleast 1 metre from each \nother in crowded places.";
+
+    private string wasingHandsTitle = "Washing Hands With Soap";
+    private string wasingHandsInformation = "Regularly washing hands \nwith soap keeps us healthy \nand can reduce the spread " +
+                                            "\nof COVID-19. Avoid touching \nyour face or food as you \nmay have touched a \ncontaminated surface.";
 
     [Header("Virus Preventions Booleans")]
     public bool firstCorrectPreventionAnswer, secondCorrectPreventionAnswer, thirdCorrectPreventionAnswer;
+
+    [Header("Virus Symptoms Booleans")]
+    public bool firstCorrectSymptomsAnswer, secondCorrectSymptomsAnswer;
 
     #region Virus Prevetions Sprites Variables
     [Header("Virus Preventions Sprites")]
@@ -74,7 +86,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         //virusScript = FindObjectOfType<Virus>();
-        preventionWindow.SetActive(false);
+        smallPreventionWindow.SetActive(false);
 
         preventionIndividualWindow.SetActive(false);
 
@@ -89,9 +101,14 @@ public class UIManager : MonoBehaviour
 
     public void ShowPreventionKnowledge()
     {
-        preventionWindow.SetActive(true);
+        smallPreventionWindow.SetActive(true);
 
         ShowUnlockPreventionKnowledge();
+    }
+
+    public void ClosePreventionWindow()
+    {
+        smallPreventionWindow.SetActive(false);
     }
 
     public void ShowUnlockPreventionKnowledge()
@@ -122,5 +139,23 @@ public class UIManager : MonoBehaviour
         icon.sprite = faceMask;
         titleText.text = faceMaskTitle;
         informationText.text = faceMaskInformation;
+    }
+
+    public void ShowSocialDistancingKnowledge()
+    {
+        preventionIndividualWindow.SetActive(true);
+
+        icon.sprite = socialDistancing;
+        titleText.text = socialDistancingTitle;
+        informationText.text = socialDistancingInformation;
+    }
+
+    public void ShowWashingHandsKnowledge()
+    {
+        preventionIndividualWindow.SetActive(true);
+
+        icon.sprite = washingHands;
+        titleText.text = wasingHandsTitle;
+        informationText.text = wasingHandsInformation;
     }
 }

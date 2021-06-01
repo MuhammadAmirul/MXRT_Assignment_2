@@ -773,7 +773,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 297381211}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 381577162}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ShowSocialDistancingKnowledge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &297381211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1053,7 +1065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53655a34af981044a993f34031b92515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preventionWindow: {fileID: 1587338497}
+  smallPreventionWindow: {fileID: 1587338497}
   preventionIndividualWindow: {fileID: 1168705735}
   icon: {fileID: 1783948679}
   titleText: {fileID: 790348498}
@@ -1061,6 +1073,8 @@ MonoBehaviour:
   firstCorrectPreventionAnswer: 0
   secondCorrectPreventionAnswer: 0
   thirdCorrectPreventionAnswer: 0
+  firstCorrectSymptomsAnswer: 0
+  secondCorrectSymptomsAnswer: 0
   faceMask: {fileID: 21300000, guid: 96bf07a59da784941b914e20cb2d1040, type: 3}
   socialDistancing: {fileID: 21300000, guid: 8416a1ca8052fe64cb610b87a9aadf54, type: 3}
   washingHands: {fileID: 21300000, guid: 3da002a531c53ab4783277e2bf33832d, type: 3}
@@ -1475,9 +1489,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60932834f5180d942a5a5cd8e72583b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
-  virusTypeOneScript: {fileID: 0}
-  virusTypeTwoScript: {fileID: 0}
+  selectVirusScript: {fileID: 0}
+  virusScript: {fileID: 0}
 --- !u!1 &702355771
 GameObject:
   m_ObjectHideFlags: 0
@@ -2875,18 +2888,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arPlaneManager: {fileID: 1057421725}
-  virusTypeOneGameObject: {fileID: 6066607125310206302, guid: 1fdcd111953a0c04499315f6f926f5af, type: 3}
-  virusTypeTwoGameObject: {fileID: 6066607125310206302, guid: 7adb7c391c5d88148920a02964316f06, type: 3}
-  virusType: 0
+  virusGameObject: {fileID: 0}
   virusSpawn: 0
   enemyHealth: {fileID: 1144040589}
   enemyHealthText: {fileID: 1886932842}
   questionText: {fileID: 2022796707}
   answerButton: {fileID: 399850861}
-  answerButtons:
-  - {fileID: 1651088897}
-  - {fileID: 912134075}
-  - {fileID: 67950528}
   answerText:
   - {fileID: 535330302}
   - {fileID: 840429858}
@@ -3532,6 +3539,7 @@ MonoBehaviour:
   answersScript: {fileID: 0}
   arCamera: {fileID: 0}
   isSelected: 0
+  virusName: 
 --- !u!1 &1299085703
 GameObject:
   m_ObjectHideFlags: 0
@@ -4663,7 +4671,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1734386333}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 381577162}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ShowWashingHandsKnowledge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1734386333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5733,7 +5753,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2139094698}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 381577162}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ShowFaceMaskKnowledge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2139094698
 MonoBehaviour:
   m_ObjectHideFlags: 0

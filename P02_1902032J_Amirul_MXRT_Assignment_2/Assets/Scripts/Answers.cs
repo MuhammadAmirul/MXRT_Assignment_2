@@ -4,39 +4,23 @@ using UnityEngine;
 
 public class Answers : MonoBehaviour
 {
-<<<<<<< HEAD
     public SelectVirus selectVirusScript;
 
-    public VirusTypeOne virusTypeOneScript;
-    public VirusTypeTwo virusTypeTwoScript;
+    public Virus virusScript;
 
     private void Start()
     {
         selectVirusScript = FindObjectOfType<SelectVirus>();
     }
-
-    public void FirstAnswer()
-    {
-        if (selectVirusScript.virusName == "Virus_Type_One")
-        {
-            virusTypeOneScript.virusPreventions.FirstAnswer();
-=======
-    public Virus virusScript;
-
     public void FirstAnswer()
     {
         virusScript.virusPreventions.FirstAnswer();
->>>>>>> parent of 72981ad (Made several changes to scripts)
 
         if (virusScript.virusPreventions.index == 1)
         {
             virusScript.virusPreventions.FirstQuestionSelection();
         }
-<<<<<<< HEAD
-        else if (selectVirusScript.virusName == "Virus_Type_Two")
-=======
         else if (virusScript.virusPreventions.index == 2)
->>>>>>> parent of 72981ad (Made several changes to scripts)
         {
             virusScript.virusPreventions.SecondQuestionSelection();
         }
@@ -48,23 +32,13 @@ public class Answers : MonoBehaviour
 
     public void SecondAnswer()
     {
-<<<<<<< HEAD
-        if (selectVirusScript.virusName == "Virus_Type_One")
-        {
-            virusTypeOneScript.virusPreventions.SecondAnswer();
-=======
         virusScript.virusPreventions.SecondAnswer();
->>>>>>> parent of 72981ad (Made several changes to scripts)
 
         if (virusScript.virusPreventions.index == 1)
         {
             virusScript.virusPreventions.FirstQuestionSelection();
         }
-<<<<<<< HEAD
-        else if (selectVirusScript.virusName == "Virus_Type_Two")
-=======
         else if (virusScript.virusPreventions.index == 2)
->>>>>>> parent of 72981ad (Made several changes to scripts)
         {
             virusScript.virusPreventions.SecondQuestionSelection();
         }
