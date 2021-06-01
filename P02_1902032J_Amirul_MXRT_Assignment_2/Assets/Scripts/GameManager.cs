@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private ARPlaneManager arPlaneManager;
 
+    public Transform placeHolder;
+
     [Header("Virus GameObject")]
     [SerializeField]
     private GameObject virusGameObject;
@@ -65,15 +67,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Testing()
+    /*void Testing()
     {
         if (virusSpawn < maxVirusSpawn)
         {
             for (int i = 0; i < maxVirusSpawn; i++)
             {
-                Instantiate(virusGameObject, arPlaneManager.transform.position, Quaternion.identity);
+                Vector3 planePosition = new Vector3(Random.Range(placeHolder.position.x - placeHolder.localScale.x / 2, placeHolder.position.x + placeHolder.localScale.x / 2),
+                                                    placeHolder.position.y,
+                                                    Random.Range(placeHolder.position.z - placeHolder.localScale.z / 2, placeHolder.position.z + placeHolder.localScale.z / 2));
+
+                Instantiate(virusGameObject, planePosition, Quaternion.identity);
                 virusSpawn++;
             }
         }
-    }
+    }*/
 }

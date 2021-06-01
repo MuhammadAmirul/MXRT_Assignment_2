@@ -101,7 +101,7 @@ public class VirusSymptoms
 
     public void ShowQuestion()
     {
-        if (!randomizedAnswer)
+        if (health > 0 && !randomizedAnswer)
         {
             for (int i = 1; i <= health; i++)
             {

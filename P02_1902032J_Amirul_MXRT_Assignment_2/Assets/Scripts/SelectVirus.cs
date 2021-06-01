@@ -49,7 +49,6 @@ public class SelectVirus : MonoBehaviour
             {
                 virusScript = FindObjectOfType<Virus>();
                 answersScript.virusScript = FindObjectOfType<Virus>();
-                Debug.Log("Virus Type: " + virusScript.virusType);
 
                 if (virusScript.virusType == 1)
                 {
@@ -64,4 +63,30 @@ public class SelectVirus : MonoBehaviour
             }
         }
     }
+
+    /*void PCVirusSelection()
+    {
+        Vector3 distance = virus.position - transform.position;
+        //var mainRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        RaycastHit hit;
+        Debug.DrawRay(transform.position, virus.position, Color.green);
+
+        if (Physics.Raycast(transform.position, distance, out hit) && hit.transform.name == "Virus" && !isSelected && Input.GetMouseButtonDown(0))
+        {
+            virusScript = FindObjectOfType<Virus>();
+            answersScript.virusScript = FindObjectOfType<Virus>();
+
+            if (virusScript.virusType == 1)
+            {
+                answersScript.virusScript.virusPreventions.GetGameObjectsAndTextComponents();
+            }
+            else
+            {
+                answersScript.virusScript.virusSymptoms.GetGameObjectsAndTextComponents();
+            }
+
+            isSelected = true;
+        }
+    }*/
 }

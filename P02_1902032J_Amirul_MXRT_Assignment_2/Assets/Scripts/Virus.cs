@@ -68,25 +68,35 @@ public class Virus : MonoBehaviour
 
     void DestroyVirusTypes()
     {
-        if (virusPreventions.health <= 0 && virusType == 1)
+        if (virusType == 1)
         {
-            gameManagerScript.virusSpawn--;
+            if (virusPreventions.health <= 0)
+            {
+                gameManagerScript.virusSpawn--;
 
-            virusPreventions.CloseQuestionsUI();
-            virusPreventions.NullSettingsOnDeath();
+                virusPreventions.CloseQuestionsUI();
+                virusPreventions.NullSettingsOnDeath();
 
-            selectVirusScript.isSelected = false;
+                selectVirusScript.isSelected = false;
 
-            Destroy(this.gameObject);
+                Destroy(this.gameObject);
+            }
+            
         }
-        else if (virusSymptoms.health <= 0 && virusType == 2)
+        else if (virusType == 2)
         {
-            virusSymptoms.CloseQuestionsUI();
-            virusSymptoms.NullSettingsOnDeath();
+            if (virusSymptoms.health <= 0)
+            {
+                gameManagerScript.virusSpawn--;
 
-            selectVirusScript.isSelected = false;
+                virusSymptoms.CloseQuestionsUI();
+                virusSymptoms.NullSettingsOnDeath();
 
-            Destroy(this.gameObject);
+                selectVirusScript.isSelected = false;
+
+                Destroy(this.gameObject);
+            }
+            
         }
     }
 }
