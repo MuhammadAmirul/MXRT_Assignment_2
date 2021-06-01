@@ -124,6 +124,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Gameplay_Scene");
     }
 
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Main_Menu");
+    }
+
     public void ShowQuitSelection()
     {
         quitSelection.SetActive(true);
