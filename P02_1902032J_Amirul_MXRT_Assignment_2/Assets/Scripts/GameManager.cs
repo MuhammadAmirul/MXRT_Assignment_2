@@ -10,8 +10,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private ARPlaneManager arPlaneManager;
 
-    public Transform placeHolder;
-
     [Header("Virus GameObject")]
     [SerializeField]
     private GameObject virusGameObject;
@@ -26,8 +24,7 @@ public class GameManager : MonoBehaviour
 
     public Text questionText;
 
-    public GameObject answerButton;
-    //public GameObject[] answerButtons = new GameObject[3];
+    public GameObject answerButtons;
     public Text[] answerText = new Text[3];
 
     public GameObject questionWindow;

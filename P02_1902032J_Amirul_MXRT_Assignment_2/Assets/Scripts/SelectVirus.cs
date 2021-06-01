@@ -9,8 +9,7 @@ public class SelectVirus : MonoBehaviour
 
     public Answers answersScript;
 
-    /*[SerializeField]
-    private GameObject selectedObject;*/
+    public UIManager uiManagerScript;
 
     [SerializeField]
     private Camera arCamera;
@@ -23,6 +22,8 @@ public class SelectVirus : MonoBehaviour
     void Start()
     {
         answersScript = FindObjectOfType<Answers>();
+
+        uiManagerScript = FindObjectOfType<UIManager>();
 
         arCamera = FindObjectOfType<Camera>();
         isSelected = false;
@@ -45,7 +46,7 @@ public class SelectVirus : MonoBehaviour
 
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit) && hit.transform.name == "Virus" && !isSelected)
+            if (Physics.Raycast(ray, out hit) && hit.transform.name == "Virus" && !isSelected && uiManagerScript.viewingKnowledge == false)
             {
                 virusScript = FindObjectOfType<Virus>();
                 answersScript.virusScript = FindObjectOfType<Virus>();

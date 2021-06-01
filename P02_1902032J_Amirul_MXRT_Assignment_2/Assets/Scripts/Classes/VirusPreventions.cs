@@ -7,7 +7,7 @@ public class VirusPreventions
 {
     public GameManager gameManager;
 
-    public UIManager UIManagerScript;
+    public UIManager uiManagerScript;
 
     public int health;
     public GameObject enemyHealth;
@@ -30,28 +30,21 @@ public class VirusPreventions
     {
         gameManager = GameObject.FindObjectOfType<GameManager>();
 
-        UIManagerScript = GameObject.FindObjectOfType<UIManager>();
+        uiManagerScript = GameObject.FindObjectOfType<UIManager>();
 
         enemyHealth = gameManager.enemyHealth;
-        //enemyHealth.SetActive(false);
-
-        //health = Random.Range(2, 4);
 
         enemyHealthText = gameManager.enemyHealthText.GetComponent<Text>();
 
         questionText = gameManager.questionText.GetComponent<Text>();
 
-        answerButton = gameManager.answerButton;
-        //answerButton.SetActive(false);
+        answerButton = gameManager.answerButtons;
 
         answerText[0] = gameManager.answerText[0].GetComponent<Text>();
         answerText[1] = gameManager.answerText[1].GetComponent<Text>();
         answerText[2] = gameManager.answerText[2].GetComponent<Text>();
 
         questionWindow = gameManager.questionWindow;
-        //questionWindow.SetActive(false);
-
-        //randomizedAnswer = false;
     }
 
     public void SetHealth()
@@ -63,7 +56,7 @@ public class VirusPreventions
     {
         gameManager = null;
 
-        UIManagerScript = null;
+        uiManagerScript = null;
 
         enemyHealthText = null;
 
@@ -167,7 +160,7 @@ public class VirusPreventions
         {
             health--;
             enemyHealthText.text = health.ToString();
-            UIManagerScript.firstCorrectPreventionAnswer = true;
+            uiManagerScript.firstCorrectPreventionAnswer = true;
             numberOfQuestions.Remove(index);
             randomizedAnswer = false;
         }
@@ -194,7 +187,7 @@ public class VirusPreventions
         {
             health--;
             enemyHealthText.text = health.ToString();
-            UIManagerScript.secondCorrectPreventionAnswer = true;
+            uiManagerScript.secondCorrectPreventionAnswer = true;
             numberOfQuestions.Remove(index);
             randomizedAnswer = false;
         }
@@ -221,7 +214,7 @@ public class VirusPreventions
         {
             health--;
             enemyHealthText.text = health.ToString();
-            UIManagerScript.thirdCorrectPreventionAnswer = true;
+            uiManagerScript.thirdCorrectPreventionAnswer = true;
             numberOfQuestions.Remove(index);
             randomizedAnswer = false;
         }

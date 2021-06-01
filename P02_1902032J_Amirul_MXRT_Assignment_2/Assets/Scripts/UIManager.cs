@@ -5,9 +5,6 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    /*[Header("Virus Script")]
-    private Virus virusScript;*/
-
     [Header("Virus Prevention Window")]
     [SerializeField]
     private GameObject smallPreventionWindow;
@@ -37,6 +34,9 @@ public class UIManager : MonoBehaviour
     private string wasingHandsTitle = "Washing Hands With Soap";
     private string wasingHandsInformation = "Regularly washing hands with \n soap keeps us healthy and \n can reduce the spread of COVID-19. " +
                                             "\nAvoid touching your face or food \nas you may have touched a \ncontaminated surface.";
+
+    [Header("Viewing Knowledge Boolean")]
+    public bool viewingKnowledge;
 
     [Header("Virus Preventions Booleans")]
     public bool firstCorrectPreventionAnswer, secondCorrectPreventionAnswer, thirdCorrectPreventionAnswer;
@@ -85,7 +85,6 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //virusScript = FindObjectOfType<Virus>();
         smallPreventionWindow.SetActive(false);
 
         preventionIndividualWindow.SetActive(false);
@@ -94,15 +93,10 @@ public class UIManager : MonoBehaviour
         firstCorrectSymptomsAnswer = secondCorrectSymptomsAnswer = false;
     }
 
-    // Update is called once per frame
-    /*void Update()
-    {
-
-    }*/
-
     public void ShowMiniPreventionKnowledge()
     {
         smallPreventionWindow.SetActive(true);
+        viewingKnowledge = true;
 
         ShowUnlockPreventionKnowledge();
     }
@@ -110,6 +104,7 @@ public class UIManager : MonoBehaviour
     public void CloseMiniPreventionWindow()
     {
         smallPreventionWindow.SetActive(false);
+        viewingKnowledge = false;
     }
 
     public void ShowUnlockPreventionKnowledge()
@@ -166,5 +161,6 @@ public class UIManager : MonoBehaviour
     public void CloseKnowledgeWindow()
     {
         preventionIndividualWindow.SetActive(false);
+        viewingKnowledge = false;
     }
 }

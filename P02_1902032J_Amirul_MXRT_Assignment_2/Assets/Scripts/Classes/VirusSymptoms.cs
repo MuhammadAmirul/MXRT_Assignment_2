@@ -7,7 +7,7 @@ public class VirusSymptoms
 {
     public GameManager gameManager;
 
-    public UIManager UIManagerScript;
+    public UIManager uiManagerScript;
 
     public int health;
     public GameObject enemyHealth;
@@ -16,8 +16,7 @@ public class VirusSymptoms
     public Text questionText;
     public string question;
 
-    public GameObject answerButton;
-    public GameObject[] answerButtons = new GameObject[3];
+    public GameObject answerButtons;
     public Text[] answerText = new Text[3];
 
     public GameObject questionWindow;
@@ -31,28 +30,21 @@ public class VirusSymptoms
     {
         gameManager = GameObject.FindObjectOfType<GameManager>();
 
-        UIManagerScript = GameObject.FindObjectOfType<UIManager>();
+        uiManagerScript = GameObject.FindObjectOfType<UIManager>();
 
         enemyHealth = gameManager.enemyHealth;
-        //enemyHealth.SetActive(false);
-
-        //health = Random.Range(1, 3);
 
         enemyHealthText = gameManager.enemyHealthText.GetComponent<Text>();
 
         questionText = gameManager.questionText.GetComponent<Text>();
 
-        answerButton = gameManager.answerButton;
-        //answerButton.SetActive(false);
+        answerButtons = gameManager.answerButtons;
 
         answerText[0] = gameManager.answerText[0].GetComponent<Text>();
         answerText[1] = gameManager.answerText[1].GetComponent<Text>();
         answerText[2] = gameManager.answerText[2].GetComponent<Text>();
 
         questionWindow = gameManager.questionWindow;
-        //questionWindow.SetActive(false);
-
-        //randomizedAnswer = false;
     }
 
     public void SetHealth()
@@ -64,13 +56,13 @@ public class VirusSymptoms
     {
         gameManager = null;
 
-        UIManagerScript = null;
+        uiManagerScript = null;
 
         enemyHealthText = null;
 
         questionText = null;
 
-        answerButton = null;
+        answerButtons = null;
 
         answerText[0] = null;
         answerText[1] = null;
@@ -85,7 +77,7 @@ public class VirusSymptoms
 
         questionWindow.SetActive(true);
 
-        answerButton.SetActive(true);
+        answerButtons.SetActive(true);
 
         enemyHealthText.text = health.ToString();
     }
@@ -96,7 +88,7 @@ public class VirusSymptoms
 
         questionWindow.SetActive(false);
 
-        answerButton.SetActive(false);
+        answerButtons.SetActive(false);
     }
 
     public void ShowQuestion()
@@ -164,7 +156,7 @@ public class VirusSymptoms
         {
             health--;
             enemyHealthText.text = health.ToString();
-            UIManagerScript.firstCorrectSymptomsAnswer = true;
+            uiManagerScript.firstCorrectSymptomsAnswer = true;
             numberOfQuestions.Remove(index);
             randomizedAnswer = false;
         }
@@ -191,7 +183,7 @@ public class VirusSymptoms
         {
             health--;
             enemyHealthText.text = health.ToString();
-            UIManagerScript.secondCorrectSymptomsAnswer = true;
+            uiManagerScript.secondCorrectSymptomsAnswer = true;
             numberOfQuestions.Remove(index);
             randomizedAnswer = false;
         }

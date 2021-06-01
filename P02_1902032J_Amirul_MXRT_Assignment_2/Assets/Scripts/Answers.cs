@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class Answers : MonoBehaviour
 {
-    //public SelectVirus selectVirusScript;
-
     public Virus virusScript;
 
-    private void Start()
-    {
-        //selectVirusScript = FindObjectOfType<SelectVirus>();
-    }
     public void FirstAnswer()
     {
         if (virusScript.virusType == 1)
