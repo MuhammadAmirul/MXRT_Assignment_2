@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Answers : MonoBehaviour
 {
+    // Declare a Virus script variable.
+    // This variable is to check the virusType, the current questions and
+    // whether the player is answering the right question.
     public Virus virusScript;
 
+    // This method will be applied to the button for the first selection.
     public void FirstAnswer()
     {
         if (virusScript.virusType == 1)
